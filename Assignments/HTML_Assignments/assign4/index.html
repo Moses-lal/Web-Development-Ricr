@@ -10,31 +10,31 @@
     <h3>pizza order form</h3>
     <div>
       <div>
-        <label for="">frist name :</label>
-        <input type="name" name="name" />
+        <label for="name">frist name :</label>
+        <input type="name" name="name" id="name" />
       </div>
       <br />
 
       <div>
-        <label for="">last name : </label>
-        <input type="name" name="lastname" />
+        <label for="lname">last name : </label>
+        <input type="name" name="lname" id="lname" />
       </div>
       <br />
 
       <div>
-        <label for="">email address :</label>
-        <input type="email" name="email" />
+        <label for="email">email address :</label>
+        <input type="email" name="email" id="email" />
       </div>
       <br />
 
       <div>
-        <label for="">contact number:</label>
-        <input type="number" name="number" />
+        <label for="number">contact number:</label>
+        <input type="tel" name="number" id="number" />
       </div>
       <br />
       <div>
-        <label for="">preferred delivery date :</label>
-        <input type="date" name="date" />
+        <label for="Ddate">preferred delivery date :</label>
+        <input type="date" name="Ddate" id="Ddate"/>
       </div>
       <br />
       <div>
@@ -46,35 +46,76 @@
         </div>
       </div>
       <br />
-      <div>
-        <label for="">flavour : </label><br />
-        <input type="checkbox" name="flavour" /><span
-          >hawaiian (php 150.00)</span
-        ><input type="" /><br />
-        <input type="checkbox" name="flavour" /><span
-          >pepperoni(php 140.00)</span
-        ><input type="" /><br />
-        <input type="checkbox" name="flavour" /><span
-          >vegetable(php 130.00)</span
-        ><input type="" /><br />
-      </div>
-      <br />
 
-      <div></div>
-    </div>
+      <div>
+        <label for="flavour">flavour : </label>
+        <div>
+          <input type="checkbox" name="quantity" id="flavour1" value="hawaiian"/>
+          <span>hawaiian(php 150.00)</span>
+          <span>
+            <select>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </span>
+          
+        </div>
+
+        <div>
+          <input type="checkbox" name="quantity" id="flavour2" value="pepperoni"/>
+          <span>pepperoni(php 120.00)</span>
+          <span>
+            <select>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </span>
+          </div>
+        
+          <div>
+            <input type="checkbox" name="quantity" id="flavour3" value="vegetable"/>
+          <span>vegetable(php 130.00)</span>
+          <span>
+            <select>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+            </select>
+          </span>
+        </div>
+          
+      </div>
+
+<br>
+<br>
+
+      <div>
+        <label for="note">additional note : </label>
+        <textarea name="note" id="note"></textarea>
+      </div>
+
+      <br>
+      <br>
+
+      <button>submit order </button>
+
+      
+
 
     <!-- task 3 forms-->
     <h3>registration form</h3>
     <table>
       <tr>
-        <th><label for="">name :</label> <input type="name" name="name" /></th>
+        <td><label for="">name :</label> <input typed="name" name="name" /></td>
       </tr>
 
       <tr>
-        <th>
+        <td>
           <label for="">address :</label>
           <input type="address" name="address" />
-        </th>
+        </td>
       </tr>
 
       <tr>
@@ -119,7 +160,24 @@
       </tr>
 
       <tr>
-        <td></td>
+        <td><b><label for="">phone:(w)</label> <input type="name" name="fax" /></b><span>(if able to speak freely)</span></td>
+      </tr>
+
+      <tr>
+        <td><label for="">desired region</label>
+        <span>
+          <select>
+            <option value="others">others</option>
+            <option value="bhopal">bhopal</option>
+            <option value="indore">indore</option>
+            <option value="ujjain">ujjain</option>
+          </select>
+        </span>
+        </td>
+
+        <td><label for="others">other</label>
+            <input type="text" name="text" id="others">
+        </td>
       </tr>
     </table>
   </body>
