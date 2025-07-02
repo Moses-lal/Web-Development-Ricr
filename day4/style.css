@@ -1,11 +1,38 @@
-.abc{
+*{
+   /* margin: 0px; */
+   /* padding: 0px;*/
+   background-color: aquamarine;
+}
+
+h3{
+    color: crimson;
+}
+
+
+.a{
     color: darkturquoise;
 }
 
-#mo{
+.b{
+    background-color: yellow;
     color: aqua;
 }
 
+.c,.d{
+    font-weight: 900;
+    background-color: chocolate;
+}
 
+.abc{
+    background-color: blanchedalmond;
+} /* not apply because inline has highest priority */
+
+#first{
+    color:chocolate;
+}
+
+#second{
+    color: forestgreen;
+}
 
 
