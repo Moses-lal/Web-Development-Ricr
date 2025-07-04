@@ -1,0 +1,165 @@
+* {
+  padding: 0px;
+  margin: 0px;
+}
+
+.a {
+  border: 1px solid #000;
+  display: flex;
+  height: 100px;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.b {
+  list-style: none;
+  display: flex;
+  gap: 40px;
+  font-weight: 600;
+  /*  align-items: center; */
+}
+
+#sc1 {
+  border: 0;
+  width: 10px;
+}
+
+.c:hover {
+  font-size: large;
+  color: rgb(197, 37, 37);
+}
+
+.c:active {
+  color: rgb(112, 199, 83);
+}
+
+.c1:hover {
+  font-size: large;
+  color: rgb(197, 37, 37);
+}
+.c1:active {
+  color: rgb(112, 199, 83);
+}
+.c2:hover {
+  font-size: large;
+  color: rgb(197, 37, 37);
+}
+.c2:active {
+  color: rgb(112, 199, 83);
+}
+.c3:hover {
+  font-size: large;
+  color: rgb(197, 37, 37);
+}
+.c3:active {
+  color: rgb(112, 199, 83);
+}
+.c4:hover {
+  font-size: large;
+  color: rgb(197, 37, 37);
+}
+.c4:active {
+  color: rgb(112, 199, 83);
+}
+.c5:hover {
+  font-size: large;
+  color: rgb(197, 37, 37);
+}
+.c5:active {
+  color: rgb(112, 199, 83);
+}
+
+.d {
+  /*border: 1px solid #000;*/
+  width: 510px;
+  height: 670px;
+  /*   background: radial-gradient(red 20%, blue 50%, green 70%); */
+  background: url(top-left-bg.jpg);
+  background-size: cover;
+  justify-items: center;
+  align-content: center;
+}
+
+.d1 {
+  /*border: 1px solid #000;*/
+  height: 100px;
+  width: 250px;
+  align-content: center;
+}
+
+.d2 {
+  font-size: xxx-large;
+  color: rgb(233, 229, 222);
+}
+
+.d3 {
+  color: rgb(233, 229, 222);
+}
+
+.d4 {
+  border: 0;
+  width: 160px;
+  height: 40px;
+  border-radius: 5px;
+  color: rgb(235, 110, 110);
+  font-size: small;
+ /* font-weight: 500;*/
+}
+
+.e{
+    /*border: 2px solid red;*/
+    width: 200vh;
+    background: url(slide-02.jpg);
+    object-fit: cover;
+}
+.e1{
+    display: flex;
+
+}
+.e2{
+  border: 1px solid #000;
+  width: 1180px;
+  height: 600px;
+  display: flex;
+
+}
+
+
+.e3{
+   border: 1px solid #000;
+   width: 600px;
+   height: 600px;
+   align-content: center;
+   justify-items: end;
+}
+
+.e6{
+  font-size: small;
+  font-weight: 400;
+  height: 130px;
+  width: 400px;
+  margin-right: 50px;
+  border: 1px solid #000;
+  justify-content: end;
+  
+}
+
+.e5{
+  border: 1px solid #000;
+  font-size: x-large;
+  font-weight: 900;
+  margin-right: 230px;
+}
+
+.e4{
+  border: 1px solid #000;
+  font-size: small;
+  font-weight: 400;
+  margin-right: 364px;
+}
+
+.e7{
+  
+  
+  
+}
