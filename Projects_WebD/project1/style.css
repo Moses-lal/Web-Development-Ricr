@@ -258,7 +258,7 @@
   position: absolute;
   right: 424px;
   background-color: var(--unicolor);
-   text-align: center;
+  text-align: center;
   align-content: center;
   color: white;
   font-size: large;
@@ -270,7 +270,7 @@
   position: absolute;
   right: 656px;
   background-color: var(--unicolor);
-   text-align: center;
+  text-align: center;
   align-content: center;
   color: white;
   font-size: large;
@@ -282,7 +282,7 @@
   position: absolute;
   right: 192.5px;
   background-color: var(--unicolor);
-   text-align: center;
+  text-align: center;
   align-content: center;
   color: white;
   font-size: large;
@@ -346,7 +346,117 @@
   background-color: var(--unicolor);
 }
 
-.m10{
+.m10 {
   background: transparent;
   border: 0;
+  margin-left: 500px;
+  margin-top: 55px;
 }
+
+.chefs {
+  border: 1px solid #000;
+  width: 1180px;
+  height: 700px;
+}
+
+.ourchef {
+  width: 300px;
+  height: 110px;
+  text-align: center;
+  margin-left: 430px;
+  margin-top: 80px;
+}
+
+.ourchef1 {
+  font: var(--fontforhead);
+  color: var(--unicolor);
+}
+
+.ourchef2 {
+  font-size: xx-large;
+  font-weight: 1000;
+}
+
+.chef1 {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+}
+
+.ch1 {
+  border: 1px solid #000;
+  padding-bottom: 40px;
+}
+.ch2 {
+  border: 1px solid #000;
+}
+.ch3 {
+  border: 1px solid #000;
+}
+
+.ch5 {
+  margin-top: 20px;
+  text-align: center;
+  font-size: large;
+  font-weight: 600;
+}
+.ch6 {
+  margin-top: 20px;
+  text-align: center;
+  font-size: large;
+  font-weight: 600;
+}
+.ch4 {
+  margin-top: 20px;
+  text-align: center;
+  font-size: large;
+  font-weight: 600;
+}
+
+.reservation{
+  border: 1px solid #000;
+  width: 1180px;
+  height: 600px;
+  display: flex;
+  background-image: url(reservation-bg.jpg);
+}
+
+.r1{
+  border: 1px solid #000;
+  width: 400px;
+  height: 400px;
+  align-content: center;
+  padding: 50px;
+}
+.r2{
+  display: flex;
+}
+
+.r21{
+  border: 1px solid floralwhite;
+  width: 230px;
+  height: 150px;
+
+}
+.r22{
+   border: 1px solid floralwhite;
+  width: 230px;
+  height: 150px;
+}
+
+.r1 h5{
+  color: white;
+  font-size: small;
+}
+.r1 h3{
+  color: white;
+  font-weight: 900;
+}
+.r1 h6{
+  color: white;
+  font-size: x-small;
+}
+
+
+
+
