@@ -1,0 +1,48 @@
+/* *{
+    background-color: blue;
+} */
+
+.main{
+    border: 1px solid #000;
+    width:  800px;
+    height: 400px;
+    background-color: blue;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.blue{
+    color: blue;
+}
+
+input{
+    border: 0;
+}
+
+button{
+   width: 200px;
+   padding: 3px;
+   background-color: blue;
+   border-radius: 10;
+}
+.fristblock{
+
+    border: 1px solid #000;
+    width: 250px;
+    background-color: white;
+    /* text-align: center; */
+    padding: 10px;
+    height: 200px;
+}
+
+.secondblock{
+    
+    border: 1px solid #000;
+    width: 250px;
+    background-color: white;
+    /* text-align: center; */
+    padding: 10px;
+     height: 300px;
+
+}

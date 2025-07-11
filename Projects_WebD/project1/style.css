@@ -7,12 +7,18 @@
   padding: 0px;
   margin: 0px;
 }
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 97;
+}
 
 .a {
   display: flex;
-  height: 100px;
+  height: 70px;
   justify-content: space-around;
   align-items: center;
+  background-color: white;
 }
 
 .b {
@@ -74,12 +80,16 @@
   color: rgb(112, 199, 83);
 }
 
+.e1 {
+  display: flex;
+}
+
 .d {
   /*border: 1px solid #000;*/
   width: 510px;
   height: 670px;
   /*   background: radial-gradient(red 20%, blue 50%, green 70%); */
-  background: url(top-left-bg.jpg);
+  background: url(asset_s/top-left-bg.jpg);
   background-size: cover;
   justify-items: center;
   align-content: center;
@@ -114,11 +124,8 @@
 .e {
   /*border: 2px solid red;*/
   width: 200vh;
-  background: url(slide-02.jpg);
+  background: url(asset_s/slide-02.jpg);
   object-fit: cover;
-}
-.e1 {
-  display: flex;
 }
 .e2 {
   width: 1180px;
@@ -190,8 +197,9 @@
 
 .f2:hover {
   opacity: 80%;
+  transition: 0.5s;
 }
-
+/*-- menu section start --*/
 .menu {
   border: 1px solid #000;
   width: 1180px;
@@ -217,17 +225,55 @@
   font-size: x-large;
 }
 
-.m4 {
-  /* border: 1px solid #000;*/
-  width: 1180px;
-  height: 300px;
-  display: flex;
-  justify-content: space-around;
-  /* gap: 23px;*/
-  position: relative;
-  padding-bottom: 20px;
+.menu4{
+    border: 1px solid #000;
+    width: 1180px;
+    /* display: grid; */
+    display: flex;
+    /* gap: 10px; */
+    justify-content: space-evenly;
 }
 
+.menu5{
+  width: 210px;
+  position: relative;
+  overflow: hidden;
+}
+.menu6{
+  display: grid;
+  gap: 10px;
+  padding: 15px  10px;
+  /* border: 1px solid #000; */
+  width: 190px;
+  position: absolute;
+  bottom: -38%;
+  transition: bottom 1s;
+  background-color: #fb5849;
+
+}
+
+.menu7{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 55px;
+  height: 55px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font: var(--fontforhead);
+  font-size: larger;
+  background-color: #fb5849;
+  color: white;
+}
+
+.menu6:hover{
+  bottom: 0;
+  transition: all 1s ;
+}
+
+
+/*
 .m5 {
   width: 60px;
   height: 60px;
@@ -289,70 +335,18 @@
   font-weight: 700;
 }
 
-.m41 {
-  position: relative;
-}
-
-.m42 {
-  border: 1px solid #000;
-  width: 209.5px;
-  height: 200px;
-  overflow: hidden;
-  position: absolute;
-  bottom: 0;
-  right: 495px;
-  background-color: var(--unicolor);
-}
-.m43 {
-  border: 1px solid #000;
-  width: 209.5px;
-  height: 200px;
-  overflow: hidden;
-  position: absolute;
-  bottom: 0;
-  right: 32px;
-  background-color: var(--unicolor);
-}
-.m44 {
-  border: 1px solid #000;
-  width: 209.5px;
-  height: 200px;
-  overflow: hidden;
-  position: absolute;
-  bottom: 0;
-  right: 263px;
-  background-color: var(--unicolor);
-}
-
-.m45 {
-  border: 1px solid #000;
-  width: 209.5px;
-  height: 200px;
-  overflow: hidden;
-  position: absolute;
-  bottom: 0;
-  left: 242.5px;
-  background-color: var(--unicolor);
-}
-
-.m46 {
-  border: 1px solid #000;
-  width: 209.5px;
-  height: 200px;
-  overflow: hidden;
-  position: absolute;
-  bottom: 0;
-  left: 10.5px;
-  background-color: var(--unicolor);
-}
-
 .m10 {
   background: transparent;
   border: 0;
   margin-left: 500px;
   margin-top: 55px;
 }
+*/
 
+
+
+
+/*-- menu section end --*/
 .chefs {
   border: 1px solid #000;
   width: 1180px;
@@ -418,7 +412,7 @@
   width: 1180px;
   height: 600px;
   display: flex;
-  background-image: url(reservation-bg.jpg);
+  background-image: url(asset_s/reservation-bg.jpg);
 }
 
 .r1 {
@@ -542,7 +536,6 @@
   height: 700px;
 }
 .sp1 {
-  border: 1px solid #000;
   margin-left: 470px;
   margin-top: 100px;
   width: 250px;
@@ -559,22 +552,38 @@
 }
 
 .sp2 {
-  border: 1px solid #000;
   width: 200px;
   margin-left: 470px;
   display: flex;
   gap: 20px;
 }
-.sp3{
+
+.sp3 {
   width: 65px;
   height: 65px;
   background-color: var(--unicolor);
-  text-align: center;
-  align-content: center;
   color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
 }
 
-.sp4{
-  width: 800px;
+.KlassySpecialItem {
+  display: grid;
+  grid-template-columns: 100px auto 80px;
+  gap: 5px;
 }
 
+.KlassySpecial {
+  display: grid;
+  grid-template-columns: 400px 400px;
+  justify-content: center;
+  gap: 20px;
+}
+
+.footer{
+  border: 1px solid #000;
+  width: 1180px;
+  height: 130px;
+}
