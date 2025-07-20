@@ -1,0 +1,83 @@
+* {
+  margin: 50px;
+}
+
+.base {
+  border: 1px solid #000;
+  width: 600px;
+  height: 400px;
+  display: flex;
+  align-items: center;
+  background-color: pink;
+  position: relative;
+  
+}
+
+.phelabox {
+  border: 1px solid #000;
+  width: 200px;
+  height: 90px;
+  background-color: crimson;
+}
+
+#ball {
+  border: 1px solid #000;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  position: absolute;
+  top: 55px;
+  /* background-color: rgb(234, 222, 42); */
+  /* animation: jump 2s ease-in-out infinite;  */
+  
+}
+
+@keyframes jump {
+  0% {
+    /* background-color: blue; */
+    bottom: 0px;
+    left: 80px;
+  }
+
+  25% {
+    /* background-color: aqua; */
+    top: 40px;
+    left: 80px;
+  }
+
+  50% {
+    /* background-color: green; */
+    /* bottom: 40px; */
+    left: 350px;
+  }
+
+  75% {
+    /* background-color: red; */
+    /* top: 0; */
+    left: 350px;
+  }
+
+  100% {
+    /* background-color: greenyellow; */
+    bottom: 0;
+    left: 350px;
+  }
+}
+
+.dusrabox {
+  border: 1px solid #000;
+  width: 200px;
+  height: 90px;
+  background-color: crimson;
+}
+
+#reset{
+  width: 60px;
+  height: 30px;
+  padding: 10px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  background-color: rgb(226, 193, 169);
+}
+ 
