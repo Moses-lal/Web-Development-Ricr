@@ -44,3 +44,8 @@ function OFF(){
 
     bulb.style.backgroundColor= "white"
 }
+
+
+// element.classList.contains("active"); // true or false
+// element.classList.replace("old-class", "new-class");
+// element.classList.item(0); // returns first class name

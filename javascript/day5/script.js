@@ -351,7 +351,7 @@ const Words = [
   "size",
 ];
 
-let countdown = 20;
+let countdown = 60;
 let score = 0;
 let Randomword;
 
@@ -416,7 +416,7 @@ function submit() {
     document.getElementById("score").innerText = score;
     document.getElementById("message").innerText = "Correct Guess";
     document.getElementById("message").style.color = "Green";
-    setTimeout(play, 500);
+    setTimeout(playgame, 500);
   } else {
     document.getElementById("answer").value = "";
     document.getElementById("answer").focus();

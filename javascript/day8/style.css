@@ -1,0 +1,8 @@
+#form {
+  grid-template-columns: 100px 200px;
+  gap: 40px;
+}
+
+#view {
+  height: 90vh;
+}
