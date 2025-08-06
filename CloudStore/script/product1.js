@@ -4,8 +4,6 @@ async function getProducts() {
 
   // console.log(data);
 
-  
-
   //   for (var i = 0; i < products.length; i++) {
   //     console.log(products[i]);
   //   }

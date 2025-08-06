@@ -4,8 +4,6 @@ async function getProducts() {
 
   // console.log(data);
 
-  
-
   //   for (var i = 0; i < products.length; i++) {
   //     console.log(products[i]);
   //   }
@@ -16,14 +14,23 @@ async function getProducts() {
     // console.log(element);
 
     let d = document.createElement("div");
-    d.classList.add("row", "border", "border-dark", "rounded", "shadow", "p-3");
+    d.classList.add(
+      "col-3",
+      "border",
+      "border-dark",
+      "rounded",
+      "shadow",
+      "p-3",
+      "mx-5",
+      "my-4"
+    );
 
     d.innerHTML = `
-               <div class="col-3 border shadow bg-white">
+               
           <img
             src="${element.image}"
             alt="item1photo"
-            class="border shadow my-2"
+            class="border shadow my-2 img"
             width="250px"
             height="250px"
           />
@@ -34,7 +41,7 @@ async function getProducts() {
             </h4>
 
             <div class="text-info">
-              <span>MRP: ₹${element.price}</span>
+              <span>MRP: ₹${(element.price*85).toFixed()}</span>
             </div>
 
             <div>
@@ -63,7 +70,7 @@ async function getProducts() {
               </button>
             </div>
           </div>
-        </div>
+        
     `;
 
     productList.appendChild(d);
