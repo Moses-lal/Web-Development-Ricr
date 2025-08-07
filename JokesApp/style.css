@@ -1,0 +1,7 @@
+.attract:hover{
+    transform: skew(20deg);
+}
+
+.attract2:hover{
+    transform: scale(1.1);
+}
