@@ -27,8 +27,8 @@ async function getItem() {
             <img src="${
               element.api_featured_image
             }" alt="" class=" my-3 mx-4 d-block shadow img" width="200px" height="200px"   />
-            <h6 class="my-3">
-            <a href="../pages/productdetails" onclick="description()" class=" product text-decoration-none ">
+            <h6 class=" head my-3">
+            <a href="../pages/productdetails.html"  class=" product text-decoration-none ">
              ${element.name}
             </h6>
             </a>
@@ -37,7 +37,7 @@ async function getItem() {
           <div class="d-flex flex-column gap-1">
             <span class="fs-6 text-success">MRP: ₹ ${(element.price * 85).toFixed()}</span>
             <span class="fs-6 text-info">brand : ${element.brand}</span>
-            <span class="fs-6 text-info">Category : ${ (element.category== "") ? "NA" : element.category }</span>
+            <span class="fs-6 text-info">Category : ${ (element.category== "") ? "nope" : element.category }</span>
             <span class="fs-6 text-info"
               >Rating
               <span
@@ -61,6 +61,12 @@ async function getItem() {
         <div>
         `;
 
+        const addlist = productRow.querySelector(".product");
+
+        addlist.addEventListener(click,()=>{
+          selectdata(element);
+        });
+
     productList.appendChild(d);
   });
 }
@@ -68,8 +74,11 @@ async function getItem() {
 getItem();
 
 
-
-
-function description(){
-
+function selectdata(product){
+  sessionStorage.setItem("ChoosedItem", JSON.stringify(product));
 }
+
+
+
+
+
