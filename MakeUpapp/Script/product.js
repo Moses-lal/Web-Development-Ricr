@@ -30,8 +30,8 @@ async function getItem() {
             <h6 class=" head my-3">
             <a href="../pages/productdetails.html"  class=" product text-decoration-none ">
              ${element.name}
-            </h6>
             </a>
+            </h6>
           </div>
 
           <div class="d-flex flex-column gap-1">
@@ -61,10 +61,10 @@ async function getItem() {
         <div>
         `;
 
-        const addlist = productRow.querySelector(".product");
+        const a = d.querySelector(".product");
 
-        addlist.addEventListener(click,()=>{
-          selectdata(element);
+        a.addEventListener("click", (e) => {
+          selectData(element);
         });
 
     productList.appendChild(d);
@@ -74,11 +74,6 @@ async function getItem() {
 getItem();
 
 
-function selectdata(product){
+function selectData(product){
   sessionStorage.setItem("ChoosedItem", JSON.stringify(product));
 }
-
-
-
-
-

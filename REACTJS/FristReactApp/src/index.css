@@ -1,0 +1,29 @@
+#about {
+  /* background-color: ; */
+  height: 450px;
+  color: saddlebrown;
+  /* font-size: x-large ; */
+  font-weight: 600;
+}
+
+.dabba {
+  background: linear-gradient(180deg, #ff9a9e, #fad0c4);
+}
+
+#img {
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: left;
+  /* background-color: black; */
+  /* background-position: center; */
+  /* top: 0; */
+  /* box-shadow: brown; */
+}
+
+#education{
+  height: 450px;
+}
+
+#edu{
+  background: linear-gradient(90deg, lightblue, lightgreen );
+}
