@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>HTML Tags</title>
+  </head>
+  <body>
+    <h2>HTML Tag Examples</h2>
+
+    <p>This is <mark>highlighted</mark> text.</p>
+
+    <p>This is <small>smaller</small> text.</p>
+
+    <p>Price: <del>$100</del> <ins>$80</ins></p>
+
+    <p>Example of code: <code>console.log("Hello World");</code></p>
+
+    <p>Math: x<sup>2</sup> + y<sup>2</sup> = z<sup>2</sup></p>
+
+    <p>Chemistry: H<sub>2</sub>O is water.</p>
+
+    <p>Event Date: <time datetime="2025-08-19">19th August 2025</time></p>
+
+    <hr />
+    <hr />
+    <br />
+    <br />
+    <br />
+
+    <h2>User Registration Form</h2>
+
+    <form action="/submit" method="post">
+      <fieldset>
+        <legend>Personal Information</legend>
+
+        <label for="name">Full Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          placeholder="Enter your name"
+          required
+        />
+        <br /><br />
+
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="Enter your email"
+          required
+        />
+        <input type="text" placeholder="First" tabindex="1" />
+        <input type="text" placeholder="Second" tabindex="2" />
+        <input type="text" placeholder="Third" tabindex="3" />
+
+        <br /><br />
+
+        <label for="bio">About You:</label><br />
+        <textarea
+          id="bio"
+          name="bio"
+          rows="4"
+          cols="40"
+          placeholder="Write something..."
+        ></textarea>
+      </fieldset>
+
+      <br />
+
+      <fieldset>
+        <legend>Preferences</legend>
+
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>
+        <br /><br />
+
+        <label>Subscribe to Newsletter:</label>
+        <input type="checkbox" name="newsletter" value="yes" /> Yes
+      </fieldset>
+
+      <br />
+      <button type="submit" onclick="alert('Button clicked!')">Submit</button>
+      <button type="reset">Reset</button>
+    </form>
+
+    <hr />
+    <br />
+    <section id="projects">
+      <h2>My Projects</h2>
+
+      <article>
+        <h5>Real-Time Chat App</h5>
+        <p>
+          A chat application built with React, Node.js, and WebSockets for
+          instant messaging.
+        </p>
+        <p><b>Tech Used:</b> React, Node.js, Socket.IO</p>
+      </article>
+
+      <article>
+        <h3>Freelancer Marketplace</h3>
+        <p>
+          A platform where freelancers can showcase their skills and get hired.
+        </p>
+        <p><b>Tech Used:</b> Spring Boot, MongoDB, React</p>
+      </article>
+
+      <p contenteditable="true">You can edit this text by clicking on it.</p>
+    </section>
+
+    <hr />
+    <br />
+
+    <div id="user" data-id="101" data-role="student"> <em>Moses Lal</em></div>
+
+    <!-- <script>
+      const user = document.getElementById("user");
+      console.log(user.dataset.id); // 101
+      console.log(user.dataset.role); // student
+    </script> -->
+
+    <hr>
+    <br>
+    <br>
+
+
+
+<div>
+     <!-- data-* -->
+  <button id="btn" data-action="download">Download File</button>
+
+  <!-- contenteditable -->
+  <h3 contenteditable="true">Edit this heading!</h3>
+
+  <!-- hidden -->
+  <p id="msg" hidden>This message is hidden.</p>
+
+  <!-- tabindex -->
+  <input type="text" placeholder="Name" tabindex="2">
+  <input type="text" placeholder="Email" tabindex="1">
+</div>
+    
+
+  <script>
+    const btn = document.getElementById("btn");
+    btn.addEventListener("click", () => {
+      alert("Action: " + btn.dataset.action); // download
+      document.getElementById("msg").hidden = false;
+    });
+  </script>
+  </body>
+</html>
