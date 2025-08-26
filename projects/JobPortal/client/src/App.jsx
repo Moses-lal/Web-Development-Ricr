@@ -7,11 +7,13 @@ import Contact from "./pages/Contact";
 import Jobs from "./pages/Jobs"
 import Login from "./pages/Login";
 import Register from "./pages/Register"
+import { Toaster } from "react-hot-toast";
 
 const App = () => {
   return (
     <>
       <BrowserRouter>
+       <Toaster/>
         <Navbar />
         <Routes>
 
