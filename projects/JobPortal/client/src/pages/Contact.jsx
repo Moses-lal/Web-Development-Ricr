@@ -9,64 +9,33 @@ const Contact = () => {
     Query: " ",
   });
 
-  const[loading,setLoading]= useState("false");
-  const[error,setErrror] = useState("");
-
-
-
+  const [loading, setLoading] = useState(false);
 
   const HandleChange = (e) => {
-
-   const {name,value} = e.target
+    const { name, value } = e.target;
 
     setcontactData((data) => ({ ...data, [name]: value }));
   };
 
   const HandleSubmit = (e) => {
-    
     e.preventDefault();
-    
-    // setTimeout(() => {
-    //    setLoading("true")
-    // }, 5000); 
 
-    setLoading("true")
-    setErrror(" ")
-
-
-    if(validate()){
-      setLoading("false")
-      return;
-    }
-
+    setLoading(true);
 
     setTimeout(() => {
-      
-    console.log(contactData);
+      console.log(contactData);
 
-       setcontactData({
-      FullName: " ",
-      email: " ",
-      Subject: " ",
-      Query: " ",
-    });
+      setcontactData({
+        FullName: " ",
+        email: " ",
+        Subject: " ",
+        Query: " ",
+      });
 
+      setLoading(false);
 
-    setLoading("false") ; 
-
-    toast.success("registration succesful ")
-
-
-
-
-
+      toast.success("registration succesful ");
     }, 2000);
-
-
-
-
-
-   
   };
 
   return (
@@ -134,7 +103,7 @@ const Contact = () => {
                   type="submit"
                   className="border w-50 rounded hover:text-xl hover:bg-blue-500 my-5"
                 >
-                  Send
+                  { loading ? "Sending..." : "Send Message" }
                 </button>
               </form>
             </div>
