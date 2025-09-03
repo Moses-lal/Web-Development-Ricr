@@ -1,13 +1,22 @@
+#nav :hover {
+  border: 1px solid #000;
+  background-color: darkslategray;
+  padding: 8px;
+  transition: padding 0.3s ease-in-out;
+}
+
 #about {
   /* background-color: ; */
-  height: 450px;
-  color: saddlebrown;
-  /* font-size: x-large ; */
-  font-weight: 600;
+  height: 480px;
+  color: #4c78a4;
+  /* color: #7cdbe5; */
 }
 
 .dabba {
-  background: linear-gradient(180deg, #ff9a9e, #fad0c4);
+  /* background: linear-gradient(180deg, #ff9a9e, #fad0c4); */
+  /* background: linear-gradient(180deg, #000000, #0f9b0f); */
+  /* background: linear-gradient(180deg, #20002c, #c31432); */
+  background: linear-gradient(180deg, #232526, #4b7299);
 }
 
 #img {
@@ -18,12 +27,25 @@
   /* background-position: center; */
   /* top: 0; */
   /* box-shadow: brown; */
+  border: 2px solid #000;
 }
 
-#education{
-  height: 450px;
+#about1 {
+  background-color: #232526;
+  box-shadow: 0 4px 15px rgba(218, 222, 225, 0.5);
 }
 
-#edu{
-  background: linear-gradient(90deg, lightblue, lightgreen );
+#education {
+  /* height: 480px; */
+}
+
+#edu {
+  background: linear-gradient(90deg, lightblue, lightgreen);
+  width: 500px;
+  /* box-shadow: 0 4px 15px rgba(218, 222, 225, 0.5); */
+   box-shadow: 0 4px 15px rgba(18, 212, 230, 0.5);
+}
+
+#tech{
+ box-shadow: 0 4px 15px rgba(181, 232, 15, 0.5);
 }

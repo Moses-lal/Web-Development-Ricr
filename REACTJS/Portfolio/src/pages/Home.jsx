@@ -23,18 +23,15 @@ const Home = () => {
           </div>
           <div className="text-xl font-medium text-white absolute top-48 left-10">
             I' M a Full Stack Web Developer <br />
-            
-           <span className="text-2xl m"> Comfort Technologies </span>
+            <span className="text-2xl m"> Comfort Technologies </span>
             <div className="flex flex-col gap-3">
               <span>MongoDB</span>
-               <span>React.js</span>
-           <span>Node.js</span>
-           <span>Express.js</span>
-           <span>TailwindCSS</span>
-           <span>JavaScript</span>
+              <span>React.js</span>
+              <span>Node.js</span>
+              <span>Express.js</span>
+              <span>TailwindCSS</span>
+              <span>JavaScript</span>
             </div>
-          
-            
           </div>
         </div>
       </div>
