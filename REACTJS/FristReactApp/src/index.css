@@ -7,7 +7,7 @@
 
 #about {
   /* background-color: ; */
-  height: 480px;
+  height: 450px;
   color: #4c78a4;
   /* color: #7cdbe5; */
 }
@@ -36,16 +36,25 @@
 }
 
 #education {
-  /* height: 480px; */
+  height: 880px;
 }
 
 #edu {
-  background: linear-gradient(90deg, lightblue, lightgreen);
+  background: linear-gradient(90deg, #232526, rgba(11, 112, 212, 0.76));
   width: 500px;
+  color: white;
   /* box-shadow: 0 4px 15px rgba(218, 222, 225, 0.5); */
-   box-shadow: 0 4px 15px rgba(18, 212, 230, 0.5);
+  /* box-shadow: 0 4px 15px rgba(18, 212, 230, 0.5); */
 }
 
-#tech{
- box-shadow: 0 4px 15px rgba(181, 232, 15, 0.5);
+.edugrid {
+  /* display: grid; */
+  grid-template-columns: 500px 500px 500px;
 }
+
+#tech {
+  box-shadow: 0 4px 15px rgba(181, 232, 15, 0.5);
+}
+
+
+

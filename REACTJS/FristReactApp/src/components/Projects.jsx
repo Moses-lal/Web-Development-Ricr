@@ -3,11 +3,15 @@ import React from "react";
 function Projects() {
   return (
     <>
-     <div id="project">
-       <h3 className="bg-primary-subtle p-3 m-2">Project page </h3>
-     </div>
      
-      <div className="bg-dark-subtle p-3">
+     
+      <div className="bg-dark  px-3">
+
+        <div className="bg-gradient p-3 mx-2 rounded-4">
+       <h3 className="fw-bolder fs-2 text-white">Featured Projects </h3>
+     </div>
+
+     
         <div className="fs-5 fw-medium my-3 mx-2">
           {" "}
           <b>Invoice Billing System (HTML, CSS, JS, Express.js) </b> <br />-
