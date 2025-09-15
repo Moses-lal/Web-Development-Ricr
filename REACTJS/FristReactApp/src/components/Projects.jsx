@@ -5,14 +5,22 @@ function Projects() {
     <>
      
      
-      <div className="bg-dark  px-3">
+      <div className="bg-dark  px-3 pb-5" id="project">
 
-        <div className="bg-gradient p-3 mx-2 rounded-4">
-       <h3 className="fw-bolder fs-2 text-white">Featured Projects </h3>
+        <div className="bg-primary-subtle p-3 mx-2 rounded-4">
+       <h3 className="fw-bolder fs-2 text-black">Featured Projects </h3>
+     </div>
+
+
+     <div className="border border-light  " id="project1">
+      moses lal
+      feefve
+      verrvre
+      vervre 
      </div>
 
      
-        <div className="fs-5 fw-medium my-3 mx-2">
+        {/* <div className="fs-5 fw-medium my-3 mx-2 ">
           {" "}
           <b>Invoice Billing System (HTML, CSS, JS, Express.js) </b> <br />-
           Developed a web-based invoice billing system using Express.js backend{" "}
@@ -35,7 +43,13 @@ function Projects() {
           on both client and server. <br />
           - Can include typing indicators, message read receipts, and real-time
           presence updates to enhance user engagement.
-        </div>
+        </div> */}
+
+
+
+
+
+
       </div>
     </>
   );

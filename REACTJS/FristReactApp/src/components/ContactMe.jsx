@@ -6,7 +6,7 @@ function ContactMe(){
     return(
       <>
       <div id="contact">
-        <h3 className="bg-primary-subtle p-3 m-2">
+        <h3 className="bg-primary-subtle p-3">
        Contact Me 
       </h3>
       </div>

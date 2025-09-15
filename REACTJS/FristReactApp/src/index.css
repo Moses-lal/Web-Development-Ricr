@@ -36,7 +36,7 @@
 }
 
 #education {
-  height: 880px;
+  height: 890px;
 }
 
 #edu {
@@ -56,5 +56,76 @@
   box-shadow: 0 4px 15px rgba(181, 232, 15, 0.5);
 }
 
+#project1 {
+  height: 500px;
+  width: 90rem;
+  margin-top: 60px;
+  margin-left: 155px;
+  margin-bottom: 100px;
+  box-shadow: 0 4px 15px rgba(181, 232, 15, 0.5);
+}
 
+#certification {
+  height: 600px;
+}
 
+.course {
+  width: 28rem;
+  height: 20rem;
+  border-radius: 5%;
+  box-shadow: 0 4px 15px rgba(181, 232, 15, 0.5);
+  font-size: large;
+  background-color: #232526;
+  color: white;
+  position: relative;
+}
+
+.course:hover {
+  color: #232526;
+  background-color: white;
+  box-shadow: 0 4px 15px rgba(35, 158, 220, 0.5);
+}
+
+.certicircle {
+  height: 95px;
+  width: 98px;
+  border-radius: 50%;
+  font-size: xxx-large;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  object-fit: fill;
+}
+
+.course:hover ~ .certicircle {
+  box-shadow: 0 4px 15px rgba(35, 158, 220, 0.5);
+}
+
+#c {
+  position: absolute;
+  left: 10rem;
+  top: 147rem;
+  background-color: #232526;
+}
+
+#ir {
+  position: absolute;
+  left: 97rem;
+  top: 146rem;
+  background-color: #232526;
+}
+
+#l {
+  position: absolute;
+  left: 69rem;
+  top: 146.5rem;
+  background-color: #232526;
+}
+
+#e {
+  position: absolute;
+  left: 40rem;
+  top: 146.5rem;
+  background-color: #232526;
+}
