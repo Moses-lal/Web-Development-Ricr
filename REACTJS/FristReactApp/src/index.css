@@ -129,3 +129,29 @@
   top: 146.5rem;
   background-color: #232526;
 }
+
+
+.maincontact{
+  height: 890px;
+  background-color: #232526;
+}
+
+#cont1{
+  grid-template-columns: 450px 500px;
+}
+
+#cont2{
+  background-color: #232526;
+   box-shadow: 0 4px 15px rgba(23, 154, 220, 0.5);
+}
+#cont{
+   box-shadow: 0 4px 15px rgba(23, 154, 220, 0.5);
+}
+
+#cont3{
+  color: rgba(23, 154, 220, 0.5);
+}
+
+.cont4{
+   color:rgba(23, 154, 220, 0.5);
+}
