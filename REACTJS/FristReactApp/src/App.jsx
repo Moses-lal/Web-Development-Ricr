@@ -9,7 +9,7 @@ import Projects from './components/Projects';
 import Certifications from './components/Certifications';
 import ContactMe from './components/ContactMe';
 
-
+import Footer from './components/Footer'
 
 
 
@@ -24,6 +24,7 @@ function app(){
     <Projects/>
     <Certifications/>
     <ContactMe/> 
+    <Footer/>
     </>
     
   )

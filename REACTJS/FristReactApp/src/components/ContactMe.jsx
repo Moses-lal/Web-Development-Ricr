@@ -61,7 +61,7 @@ function ContactMe(){
         </div>
         </div>
         
-
+        {/* <hr className="text-white mt-5 pt-5"/> */}
 
       </div>
      

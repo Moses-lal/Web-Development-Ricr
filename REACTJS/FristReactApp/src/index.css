@@ -155,3 +155,10 @@
 .cont4{
    color:rgba(23, 154, 220, 0.5);
 }
+
+#footer{
+  /* background-color: #232526; */
+  background-color: #4c78a4;
+  height: 120px;
+  display: flex;
+}
