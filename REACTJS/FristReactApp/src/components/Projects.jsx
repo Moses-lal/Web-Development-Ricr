@@ -1,59 +1,157 @@
 import React from "react";
+import { FaCircleChevronLeft } from "react-icons/fa6";
+import { FaCircleChevronRight } from "react-icons/fa6";
 
 function Projects() {
+
+
+  function left() {
+    let currentloc = Number(
+      document.getElementById("project1").style.marginLeft.split("px")[0]
+    );
+
+    if (currentloc === 0) return;
+
+    currentloc += 400;
+
+    document.getElementById("project1").style.marginLeft = currentloc + "px";
+  }
+
+
+  function right() {
+    let currentloc = Number(
+      document.getElementById("project1").style.marginLeft.split("px")[0]
+    );
+
+    if (currentloc === -2100) return;
+
+    currentloc -= 400;
+
+    document.getElementById("project1").style.marginLeft = currentloc + "px";
+  }
+
+
+
+
+
+
+
+
+
+
+
   return (
     <>
-     
-     
       <div className="bg-dark  px-3 pb-5" id="project">
-
         <div className="bg-primary-subtle p-3 mx-2 rounded-4">
-       <h3 className="fw-bolder fs-2 text-black">Featured Projects </h3>
-     </div>
-
-
-     <div className="border border-light  " id="project1">
-      moses lal
-      feefve
-      verrvre
-      vervre 
-     </div>
-
-     
-        {/* <div className="fs-5 fw-medium my-3 mx-2 ">
-          {" "}
-          <b>Invoice Billing System (HTML, CSS, JS, Express.js) </b> <br />-
-          Developed a web-based invoice billing system using Express.js backend{" "}
-          <br />- Implemented secure authentication, invoice tracking, and
-          automated email notifications <br />- Designed an intuitive UI for
-          easy invoice generation{" "}
+          <h3 className="fw-bolder fs-2 text-black">Featured Projects </h3>
         </div>
-        <div className="fs-5 fw-medium my-3 mx-2 ">
-          <b>Virtual Marketplace for Freelancers (MERN Stack)</b> <br />- Built
-          a platform for freelancers and clients to collaborate efficiently{" "}
-          <br />- Integrated secure payment gateway, escrow system, real-time
-          chat, and feedback system <br />- Used MERN stack for scalable
-          performance and security
+
+        <div
+          className="border border-light text-white p-3 d-flex gap-5 overflow-hidden"
+          id="project1"
+          style={{ marginLeft: "-210" }}
+        >
+          <div className="border bg-gradient pro">
+            <div className="mb-2">
+              <img src={"/pro1.png"} width={"350px"} height={"300px"} />
+            </div>
+            <h4 className="fw-bold">Virtual Market Place - </h4>
+            <p className="fs-6 fw-medium">
+              a Market for Fresher To Start Earning And <br />
+              Showcase Their Work <br />
+              <span className="fs-5 fw-bold cont4">Made In MERN </span> <br />
+              More Info- <br />- A platform for freelancers and clients to
+              collaborate efficiently. - Integrated secure payment gateway,
+              escrow system, real-time chat, and feedback system.
+            </p>
+          </div>
+
+          <div className="border bg-gradient pro">
+            <div className="mb-2">
+              <img src={"/pro1.png"} width={"350px"} height={"300px"} />
+            </div>
+            <h4 className="fw-bold">Virtual Market Place - </h4>
+            <p className="fs-6 fw-medium">
+              a Market for Fresher To Start Earning And <br />
+              Showcase Their Work <br />
+              <span className="fs-5 fw-bold cont4">Made In MERN </span> <br />
+              More Info- <br />- A platform for freelancers and clients to
+              collaborate efficiently. - Integrated secure payment gateway,
+              escrow system, real-time chat, and feedback system.
+            </p>
+          </div>
+
+          <div className="border bg-gradient pro">
+            <div className="mb-2">
+              <img src={"/pro1.png"} width={"350px"} height={"300px"} />
+            </div>
+            <h4 className="fw-bold">Virtual Market Place - </h4>
+            <p className="fs-6 fw-medium">
+              a Market for Fresher To Start Earning And <br />
+              Showcase Their Work <br />
+              <span className="fs-5 fw-bold cont4">Made In MERN </span> <br />
+              More Info- <br />- A platform for freelancers and clients to
+              collaborate efficiently. - Integrated secure payment gateway,
+              escrow system, real-time chat, and feedback system.
+            </p>
+          </div>
+
+          <div className="border bg-gradient pro">
+            <div className="mb-2">
+              <img src={"/pro1.png"} width={"350px"} height={"300px"} />
+            </div>
+            <h4 className="fw-bold">Virtual Market Place - </h4>
+            <p className="fs-6 fw-medium">
+              a Market for Fresher To Start Earning And <br />
+              Showcase Their Work <br />
+              <span className="fs-5 fw-bold cont4">Made In MERN </span> <br />
+              More Info- <br />- A platform for freelancers and clients to
+              collaborate efficiently. - Integrated secure payment gateway,
+              escrow system, real-time chat, and feedback system.
+            </p>
+          </div>
+
+          <div className="border bg-gradient pro">
+            <div className="mb-2">
+              <img src={"/pro1.png"} width={"350px"} height={"300px"} />
+            </div>
+            <h4 className="fw-bold">Virtual Market Place - </h4>
+            <p className="fs-6 fw-medium">
+              a Market for Fresher To Start Earning And <br />
+              Showcase Their Work <br />
+              <span className="fs-5 fw-bold cont4">Made In MERN </span> <br />
+              More Info- <br />- A platform for freelancers and clients to
+              collaborate efficiently. - Integrated secure payment gateway,
+              escrow system, real-time chat, and feedback system.
+            </p>
+          </div>
+
+          <div className="border bg-gradient pro">
+            <div className="mb-2">
+              <img src={"/pro1.png"} width={"350px"} height={"300px"} />
+            </div>
+            <h4 className="fw-bold">Virtual Market Place - </h4>
+            <p className="fs-6 fw-medium">
+              a Market for Fresher To Start Earning And <br />
+              Showcase Their Work <br />
+              <span className="fs-5 fw-bold cont4">Made In MERN </span> <br />
+              More Info- <br />- A platform for freelancers and clients to
+              collaborate efficiently. - Integrated secure payment gateway,
+              escrow system, real-time chat, and feedback system.
+            </p>
+          </div>
         </div>
-        <div className="fs-5 fw-medium my-3 mx-2 ">
-          <b>Real-Time Chat Application (using socket-io)</b> <br />- Uses
-          WebSockets for persistent, bidirectional connections, enabling instant
-          message delivery without repeated HTTP requests. <br />- Supports
-          multiple concurrent users and chat rooms with efficient event handling
-          on both client and server. <br />
-          - Can include typing indicators, message read receipts, and real-time
-          presence updates to enhance user engagement.
-        </div> */}
 
-
-
-
-
-
+        <button onClick={left} id="left">
+          <FaCircleChevronLeft />
+        </button>
+        <button onClick={right} id="right">
+          <FaCircleChevronRight />
+        </button>
       </div>
     </>
   );
 }
-
 
 export default Projects;

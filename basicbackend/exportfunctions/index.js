@@ -6,7 +6,7 @@
 
 import {a,b} from "./index2.js"
 
-
+import c from './index2.js'
 
 
 
@@ -14,3 +14,4 @@ a();
 
 b();
 
+c();
