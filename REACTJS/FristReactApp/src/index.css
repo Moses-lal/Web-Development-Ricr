@@ -63,8 +63,13 @@
   margin-top: 60px;
   margin-left: 155px;
   margin-bottom: 100px;
-  box-shadow: 0 4px 15px rgba(181, 232, 15, 0.5);
+  /* box-shadow: 0 4px 15px rgba(181, 232, 15, 0.5); */
+  box-shadow: 0 4px 15px rgba(23, 154, 220, 0.5);
   position: relative;
+}
+
+#project2{
+  transition: margin-left 1s;
 }
 
 .pro{

@@ -27,6 +27,18 @@ app.get("/",(req,res)=>{
 })
 
 
+
+// app.use((err,req,res,next)=>{
+//     const ErrorMessage = err.message || "internal server error ";
+//     const ErrorCode = err.statusCode || 500 ;
+//     res.status(ErrorCode).json({message :ErrorMessage});
+
+// })
+
+
+
+
+
 // let port ;
 // if(!process.env.PORT){
 //     port = 5000;
