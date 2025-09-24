@@ -1,10 +1,9 @@
-export const LoginCheck = (req,res,next)=>{
- try{
+export const LoginCheck = (req, res, next) => {
+  try {
     console.log("login check");
-    next()
+    next();
     
- }catch(error){
-    res.status(401).json({message:"please login frist"})
- }
-
-}
+  } catch (error) {
+    res.status(401).json({ message: "please login frist" });
+  }
+};

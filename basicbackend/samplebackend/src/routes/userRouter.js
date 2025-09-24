@@ -1,6 +1,6 @@
 import express from "express";
-import { Update, ChangePass, Delete } from "../controller/userController";
-import { LoginCheck } from "../middlewares/authmid";
+import { Update, ChangePass, Delete } from "../controller/userController.js";
+import { LoginCheck } from "../middlewares/authmid.js";
 
 const router = express.Router();
 
