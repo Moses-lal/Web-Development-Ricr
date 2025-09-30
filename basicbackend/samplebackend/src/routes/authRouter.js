@@ -1,5 +1,5 @@
 import express from "express";
-import { Register,Login,Logout } from "../controller/authController.js";
+import { Register,Login,Logout,ForgetPassword } from "../controller/authController.js";
 
 
 
@@ -12,5 +12,6 @@ router.post("/login",Login);
 
 router.get("/logout",Logout);
 
+router.patch("/forgetpass", ForgetPassword)
 
 export default router;
