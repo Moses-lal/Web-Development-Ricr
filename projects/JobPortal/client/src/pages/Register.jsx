@@ -1,10 +1,15 @@
 import React, { useState } from "react";
 import toast from "react-hot-toast";
+import api from "../config/api";
+import { useNavigate } from "react-router-dom";
 
 const Register = () => {
+  const navigate = useNavigate();
+
   const [registerData, setRegisterData] = useState({
     FullName: "",
     email: "",
+    phone: "",
     password: "",
     confirmPassword: "",
   });
@@ -58,28 +63,51 @@ const Register = () => {
     return isvalid;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+
     setLoading(true);
     setError("");
 
     if (!validate()) {
       setLoading(false);
-      toast.error("please solve the error ")
+      toast.error("please solve the error ");
       return;
     }
 
-    setTimeout(() => {
-      console.log(registerData);
+    // setTimeout(() => {
+    //   console.log(registerData);
+    //   setRegisterData({
+    //     fullName: "",
+    //     email: "",
+    //     password: "",
+    //     confirmPassword: "",
+    //   });
+    //   setLoading(false);
+    //   toast.success("registration successfull")
+    // }, 2000);
+
+    try {
+      const res = await api.post("/auth/register", registerData);
+      toast.success(res.data.message);
+
       setRegisterData({
-        fullName: "",
+        FullName: "",
         email: "",
+        phone: "",
         password: "",
         confirmPassword: "",
       });
+
+      navigate("/login");
+    } catch (error) {
+      console.log("error in registering ", error);
+      toast.error(
+        `Error : ${error.response?.status} | ${error.response?.data?.messsage} `
+      );
+    } finally {
       setLoading(false);
-      toast.success("registration successfull")
-    }, 2000);
+    }
   };
 
   return (
@@ -90,62 +118,77 @@ const Register = () => {
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
               <div>
-              <label htmlFor="FullName">FullName:</label>
-              <input
-                type="name"
-                id="FullName"
-                name="FullName"
-                className="border"
-                onChange={handlechange}
-              />
+                <label htmlFor="FullName">FullName:</label>
+                <input
+                  type="name"
+                  id="FullName"
+                  name="FullName"
+                  className="border"
+                  onChange={handlechange}
+                />
+              </div>
+              {error.FullName && (
+                <p className="text-red-500 text-sm mt-1 mx-15">
+                  {error.FullName}
+                </p>
+              )}
             </div>
-            {error.FullName && ( <p className="text-red-500 text-sm mt-1 mx-15">{error.FullName}</p> )}
-            </div>
-            
-            <div>
-              <div>
-              <label htmlFor="email">Email:</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                className="border"
-                onChange={handlechange}
-              />
-            </div>
-             {error.email && ( <p className="text-red-500 text-sm mt-1 mx-15">{error.email}</p> )}
-            </div>
-            
-            <div>
-              <div>
-              <label htmlFor="password">Password:</label>
-              <input
-                type="password"
-                className="border"
-                id="password"
-                name="password"
-                onChange={handlechange}
-              />
-            </div>
-             {error.password && ( <p className="text-red-500 text-sm mt-1 mx-15">{error.password}</p> )}
-            </div>
-            
-            <div>
-              <div>
-              <label htmlFor="confirmPassword">Confirm Password:</label>
-              <input
-                type="password"
-                className="border"
-                id="confirmPassword"
-                name="confirmPassword"
-                onChange={handlechange}
-              />
-            </div>
-              {error.confirmPassword && ( <p className="text-red-500 text-sm mt-1 mx-15">{error.confirmPassword}</p> )}
-            </div>
-            
 
-            <button type="submit" className="border w-full p-3 rounded-2xl">Register</button>
+            <div>
+              <div>
+                <label htmlFor="email">Email:</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  className="border"
+                  onChange={handlechange}
+                />
+              </div>
+              {error.email && (
+                <p className="text-red-500 text-sm mt-1 mx-15">{error.email}</p>
+              )}
+            </div>
+
+            <div>
+              <div>
+                <label htmlFor="password">Password:</label>
+                <input
+                  type="password"
+                  className="border"
+                  id="password"
+                  name="password"
+                  onChange={handlechange}
+                />
+              </div>
+              {error.password && (
+                <p className="text-red-500 text-sm mt-1 mx-15">
+                  {error.password}
+                </p>
+              )}
+            </div>
+
+            <div>
+              <div>
+                <label htmlFor="confirmPassword">Confirm Password:</label>
+                <input
+                  type="password"
+                  className="border"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  onChange={handlechange}
+                />
+              </div>
+              {error.confirmPassword && (
+                <p className="text-red-500 text-sm mt-1 mx-15">
+                  {error.confirmPassword}
+                </p>
+              )}
+            </div>
+
+            <button type="submit" className="border w-full p-3 rounded-2xl">
+              Register
+            </button>
           </form>
         </div>
       </div>
