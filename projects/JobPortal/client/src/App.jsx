@@ -9,6 +9,7 @@ import Contact from "./pages/Contact";
 import Jobs from "./pages/Jobs"
 import Login from "./pages/Login";
 import Register from "./pages/Register"
+import Userdash from "./pages/userdash";
 import { Toaster } from "react-hot-toast";
 
 const App = () => {
@@ -25,6 +26,8 @@ const App = () => {
           <Route path={"/jobs"}  element = {<Jobs/>}/>
           <Route path={"/login"} element={<Login />} />
           <Route path={"/register"} element={<Register />} />
+          <Route path={"/userdash"} element={<Userdash />} />
+
 
         </Routes>
       </BrowserRouter>

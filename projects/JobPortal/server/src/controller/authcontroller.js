@@ -4,29 +4,29 @@ import { genauthtoken } from "../utils/token.js";
 
 export const register = async (req, res, next) => {
   try {
-    const { email, password, phone, fullname } = req.body;
+    const { email, password, phone, fullName } = req.body;
 
-    if (!email || !password || !phone || !fullname) {
+    if (!email || !password || !phone || !fullName) {
       const error = new Error("all fields required ");
       error.statuscode = 400;
       return next(error);
     }
 
-    const existinguser = await user.findone({ email });
+    const existinguser = await user.findOne({ email });
     if (existinguser) {
       const error = new Error("already exitss");
       error.statuscode = 409;
       return next(error);
     }
 
-    const photo = `https://placehold.co/600x400?text=${fullname
+    const photo = `https://placehold.co/600x400?text=${fullName
       .charAt(0)
       .toUpperCase()}`;
 
     const hashedpassword = await bcrypt.hash(password, 10);
 
     const newuser = await user.create({
-      fullname,
+      fullName,
       email,
       phone,
       photo,
@@ -53,7 +53,7 @@ export const login = async (req, res, next) => {
     }
 
 
-    const existinguser = await user.findone({ email });
+    const existinguser = await user.findOne({ email });
     if (!existinguser) {
       const error = new Error("you need to register frist ");
       error.statuscode = 401;
@@ -80,7 +80,7 @@ export const login = async (req, res, next) => {
       return next(error);
     }
 
-    res.status(200).json({ message: `Welcome Back ${existinguser.fullname}` , data:existinguser});
+    res.status(200).json({ message: `Welcome Back ${existinguser.fullName}` , data:existinguser});
   } catch (error) {
     next(error);
   }

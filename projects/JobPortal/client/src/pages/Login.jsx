@@ -1,7 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import api from "../config/api";
+import toast from "react-hot-toast";
+import { Navigate } from "react-router-dom";
 
 const Login = () => {
+
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
@@ -16,44 +20,64 @@ const Login = () => {
     setLoginData((previousData) => ({ ...previousData, [name]: value }));
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
+  const handleSubmit = async (e) => {
 
+    e.preventDefault();
     console.log(loginData);
 
-    setLoginData({
+
+    try {
+
+      const res = await api.post("/auth/login",loginData)
+      toast.success(res.data.message)
+      sessionStorage.setItem("userData", JSON.stringify(res.data.data));
+
+      setLoginData({
       email: "",
       password:"",
     });
+
+    Navigate("/userdash")
+
+    } catch (error) {
+      console.log(error);
+      toast.error(
+        `Error : ${error.response?.status} | ${error.response?.data?.message}`
+      );
+    } 
+
+
   };
 
   return (
     <>
-      <div className=" bg-gray-100 min-h-screen flex items-center justify-center">
-        <div className="min-w-md border rounded-2xl shadow bg-white space-y-10 p-5">
-          <h1 className="text-3xl text-center">Login to Portal </h1>
+      <div className=" bg-gray-900 min-h-screen flex items-center justify-center">
+
+        
+        <div className="min-w-md border border-black  rounded-2xl  bg-white space-y-10 p-8">
+          <h1 className="text-3xl text-center p-3 font-medium text-blue-800">Login to Portal </h1>
           <form className="space-y-6" onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor="email">Email:</label>
+            <div className="space-x-6"> 
+              <label className="text-2xl text-black ">Email:</label>
               <input
                 type="email"
                 id="email"
                 name="email"
                 onChange={handlechange}
                 value={loginData.email}
-                className="border"
+                className="border border-blue-800 shadow-sm shadow-cyan-700 w-50 p-1"
                  placeholder="yourexample@.com"
               />
             </div>
 
-            <div>
-              <label htmlFor="password">Password:</label>
+            <div className="space-x-6">
+              <label className="text-2xl text-black ">Password:</label>
               <input
                 type="password"
                 onChange={handlechange}
                 value={loginData.password}
                 name="password"
-                className="border"
+                className="border  border-blue-800 shadow-sm shadow-cyan-700 w-50 p-1"
                 id="password"
                 placeholder="*********"
               />

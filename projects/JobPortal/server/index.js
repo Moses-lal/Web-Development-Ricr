@@ -5,7 +5,7 @@ import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import connectDB from "./src/config/db.js";
-import AuthRouter from "./src/routers/authRoutes.js";
+import AuthRouter from "./src/routes/authRouter.js";
 import morgan from "morgan";
 
 

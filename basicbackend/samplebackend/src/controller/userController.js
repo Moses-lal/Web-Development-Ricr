@@ -52,7 +52,7 @@ export const Delete = async (req, res,next) => {
 
         const currentuser = req.user;
 
-        await currentuser.deleteone({ email: currentuser.email})
+        await currentuser.deleteOne({ email: currentuser.email})
 
 
         res.status(204).json({ message: "the information is deleted " });

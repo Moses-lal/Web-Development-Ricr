@@ -7,7 +7,7 @@ const Register = () => {
   const navigate = useNavigate();
 
   const [registerData, setRegisterData] = useState({
-    FullName: "",
+    fullName: "",
     email: "",
     phone: "",
     password: "",
@@ -27,13 +27,13 @@ const Register = () => {
     let isvalid = true;
     const err = {};
 
-    if (registerData.FullName.length < 3) {
-      err.FullName = " Name Should be of atleast 3 character ";
+    if (registerData.fullName.length < 3) {
+      err.fullName = " Name Should be of atleast 3 character ";
       isvalid = false;
     }
 
-    if (!/^[A-Za-z ]+$/.test(registerData.FullName)) {
-      err.FullName = "Only Alphabets are allowed";
+    if (!/^[A-Za-z ]+$/.test(registerData.fullName)) {
+      err.fullName = "Only Alphabets are allowed";
       isvalid = false;
     }
 
@@ -92,7 +92,7 @@ const Register = () => {
       toast.success(res.data.message);
 
       setRegisterData({
-        FullName: "",
+        fullName: "",
         email: "",
         phone: "",
         password: "",
@@ -112,36 +112,37 @@ const Register = () => {
 
   return (
     <>
-      <div className=" bg-gray-100 min-h-screen flex items-center justify-center">
-        <div className="min-w-md bg-white rounded-2xl space-y-10">
-          <h1 className="text-blue-800 text-2xl text-center"> Register </h1>
+      <div className=" bg-gray-900 min-h-screen flex items-center justify-center">
+
+        <div className="min-w-md bg-white rounded-2xl p-8 space-y-10 ">
+          <h1 className="text-blue-800 text-2xl text-center font-medium"> Register </h1>
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div>
-              <div>
-                <label htmlFor="FullName">FullName:</label>
+              <div className="space-x-6">
+                <label className="text-2xl">FullName:</label>
                 <input
                   type="name"
-                  id="FullName"
-                  name="FullName"
-                  className="border"
+                  id="fullName"
+                  name="fullName"
+                  className="border p-1"
                   onChange={handlechange}
                 />
               </div>
-              {error.FullName && (
+              {error.fullName && (
                 <p className="text-red-500 text-sm mt-1 mx-15">
-                  {error.FullName}
+                  {error.fullName}
                 </p>
               )}
             </div>
 
             <div>
-              <div>
-                <label htmlFor="email">Email:</label>
+              <div className="space-x-6">
+                <label className="text-2xl">Email:</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  className="border"
+                  className="border p-1"
                   onChange={handlechange}
                 />
               </div>
@@ -151,11 +152,11 @@ const Register = () => {
             </div>
 
             <div>
-              <div>
-                <label htmlFor="password">Password:</label>
+              <div className="space-x-6">
+                <label className="text-2xl">Password:</label>
                 <input
                   type="password"
-                  className="border"
+                  className="border p-1"
                   id="password"
                   name="password"
                   onChange={handlechange}
@@ -169,11 +170,11 @@ const Register = () => {
             </div>
 
             <div>
-              <div>
-                <label htmlFor="confirmPassword">Confirm Password:</label>
+              <div className="space-x-6">
+                <label className="text-2xl">Confirm Password:</label>
                 <input
                   type="password"
-                  className="border"
+                  className="border p-1"
                   id="confirmPassword"
                   name="confirmPassword"
                   onChange={handlechange}
@@ -182,6 +183,24 @@ const Register = () => {
               {error.confirmPassword && (
                 <p className="text-red-500 text-sm mt-1 mx-15">
                   {error.confirmPassword}
+                </p>
+              )}
+            </div>
+
+            <div>
+              <div className="space-x-6">
+                <label htmlFor="phone" className="text-2xl">phone:</label>
+                <input
+                  type="name"
+                  id="phone"
+                  name="phone"
+                  className="border p-1"
+                  onChange={handlechange}
+                />
+              </div>
+              {error.phone && (
+                <p className="text-red-500 text-sm mt-1 mx-15">
+                  {error.phone}
                 </p>
               )}
             </div>
