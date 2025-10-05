@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import toast from "react-hot-toast";
 
 const Contact = () => {
+  
   const [contactData, setcontactData] = useState({
     FullName: " ",
     email: " ",
@@ -39,8 +40,9 @@ const Contact = () => {
   };
 
   return (
-    <div className="h-100vh w-full bg-cyan-500">
-      <div>
+    <div className="h-200 w-full bg-cyan-500">
+      
+      
         <div className="p-30 flex">
           <div className="">
             <img
@@ -109,7 +111,11 @@ const Contact = () => {
             </div>
           </div>
         </div>
-      </div>
+      
+
+
+
+
     </div>
   );
 };

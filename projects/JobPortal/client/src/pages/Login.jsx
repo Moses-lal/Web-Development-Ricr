@@ -2,14 +2,18 @@ import React from "react";
 import { useState } from "react";
 import api from "../config/api";
 import toast from "react-hot-toast";
-import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+
+  const navigate = useNavigate();
 
   const [loginData, setLoginData] = useState({
     email: "",
     password: "",
   });
+
+  const [loading,setloading] = useState(true)
 
   const handlechange = (e) => {
     // const Name = e.target.name;
@@ -24,7 +28,7 @@ const Login = () => {
 
     e.preventDefault();
     console.log(loginData);
-
+    setloading(true)
 
     try {
 
@@ -37,14 +41,17 @@ const Login = () => {
       password:"",
     });
 
-    Navigate("/userdash")
+    navigate("/userdash")
 
     } catch (error) {
       console.log(error);
       toast.error(
         `Error : ${error.response?.status} | ${error.response?.data?.message}`
       );
-    } 
+      
+    } finally{
+      setloading(false)
+    }
 
 
   };
@@ -55,7 +62,7 @@ const Login = () => {
 
         
         <div className="min-w-md border border-black  rounded-2xl  bg-white space-y-10 p-8">
-          <h1 className="text-3xl text-center p-3 font-medium text-blue-800">Login to Portal </h1>
+          <h1 className="text-3xl text-center p-3 font-medium text-[var(--tertiary)]">Login to Portal </h1>
           <form className="space-y-6" onSubmit={handleSubmit}>
             <div className="space-x-6"> 
               <label className="text-2xl text-black ">Email:</label>

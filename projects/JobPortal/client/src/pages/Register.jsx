@@ -103,7 +103,7 @@ const Register = () => {
     } catch (error) {
       console.log("error in registering ", error);
       toast.error(
-        `Error : ${error.response?.status} | ${error.response?.data?.messsage} `
+        `Error : ${error.response?.status} | ${error.response?.data?.message} `
       );
     } finally {
       setLoading(false);
