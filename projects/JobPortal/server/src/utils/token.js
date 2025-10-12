@@ -3,6 +3,7 @@ import jwt from "jsonwebtoken";
 
 export const genauthtoken  = async (user,res)=>{
  try {
+    
     const token = await jwt.sign({id: user._id},process.env.SECRECT_KEY,{expiresIn:"1d"})
 
     res.cookie("tokencookie", token ,{

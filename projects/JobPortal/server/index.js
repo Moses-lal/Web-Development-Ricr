@@ -3,12 +3,12 @@ dotenv.config();
 
 
 
-
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
 import connectDB from "./src/config/db.js";
 import AuthRouter from "./src/routes/authRouter.js";
+import UserRouter from './src/routes/userRouter.js'
 import morgan from "morgan";
 // import cloudinary from "./src/config/cloudinary.js"
 
@@ -34,7 +34,7 @@ app.use(morgan("dev"));
 
 
 app.use("/auth", AuthRouter);
-
+app.use("/user", UserRouter )
 
 
 

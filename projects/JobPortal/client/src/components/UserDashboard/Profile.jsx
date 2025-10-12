@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import UpdateProfileModal from "../UserDashboard/updatemodel"
 import { RxLinkedinLogo, RxGithubLogo, RxInstagramLogo } from "react-icons/rx";
 import { RiTwitterXLine } from "react-icons/ri";
 import { FcCamera } from "react-icons/fc";
@@ -11,7 +12,7 @@ import { FcCamera } from "react-icons/fc";
 
    const [loading,setloading] = useState(true);
 
-   const [isUpdateModelOpen,setUpdateModalOpen]= useState(false);
+   const [UpdateModelOpen,setUpdateModalOpen]= useState(false);
 
    const [preview,setpreview] = useState("");
 
@@ -79,8 +80,12 @@ import { FcCamera } from "react-icons/fc";
       <div className="h-full bg-gray-50 py-8">
 
         <div className="w-6xl mx-auto space-y-8">
-          {/* Header Card */}
+
+
+
           <div className="bg-white border border-gray-200 shadow-sm rounded-2xl p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6">
+
+            {/* image  */}
             <div className="flex-shrink-0">
               <div className="relative w-32 h-32">
                 <img
@@ -104,7 +109,10 @@ import { FcCamera } from "react-icons/fc";
               </div>
             </div>
 
+
+            
             <div className="flex-1 space-y-3">
+
               <div className="flex justify-between">
                 <div>
                   <h1 className="text-2xl md:text-3xl font-semibold text-[var(--primary)] tracking-tight">
@@ -126,6 +134,8 @@ import { FcCamera } from "react-icons/fc";
                   </button>
                 </div>
               </div>
+
+
               <div className="grid grid-cols-4 gap-4">
                 {statItems.map((s) => (
                   <div
@@ -141,12 +151,22 @@ import { FcCamera } from "react-icons/fc";
                   </div>
                 ))}
               </div>
+
             </div>
+
           </div>
+
+
+
 
           {/* Details Grid */}
           <div className="grid md:grid-cols-3 gap-6">
+
+
+
+
             <div className="md:col-span-2 space-y-6">
+
               <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <h2 className="text-lg font-semibold text-[var(--primary)] mb-4">
                   Bio
@@ -175,7 +195,10 @@ import { FcCamera } from "react-icons/fc";
                   <p className="text-sm text-gray-500">No skills provided.</p>
                 )}
               </section>
+              
             </div>
+
+
 
             <div className="space-y-6">
 
@@ -255,19 +278,24 @@ import { FcCamera } from "react-icons/fc";
                 </ul>
               </section>
 
-
-
-
-
             </div>
+
+
+
           </div>
+
+
+
+
+
+          
         </div>
       </div>
 
-      {/* <UpdateProfileModal
-        isOpen={isUpdateModalOpen}
+      <UpdateProfileModal
+        isOpen={UpdateModelOpen}
         onClose={() => setUpdateModalOpen(false)}
-      /> */}
+      />
     </>
   );
 };
