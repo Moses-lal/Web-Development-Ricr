@@ -1,12 +1,12 @@
 import bcrypt from "bcrypt";
-import user from "../models/usermodels.js";
+import user from "../models/usermodel.js";
 import { genauthtoken } from "../utils/token.js";
 
 export const register = async (req, res, next) => {
   try {
-    const { email, password, phone, fullName } = req.body;
+    const { email, password, phone, fullName , role } = req.body;
 
-    if (!email || !password || !phone || !fullName) {
+    if (!email || !password || !phone || !fullName || !role) {
       const error = new Error("all fields required ");
       error.statuscode = 400;
       return next(error);
@@ -73,14 +73,12 @@ export const login = async (req, res, next) => {
     }
 
 
+    genauthtoken(existinguser,res);
 
-    if(!genauthtoken(existinguser,res)){
-      const error = new Error("token creation error");
-      error.statuscode = 403;
-      return next(error);
-    }
 
     res.status(200).json({ message: `Welcome Back ${existinguser.fullName}` , data:existinguser});
+
+
   } catch (error) {
     next(error);
   }

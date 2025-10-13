@@ -12,7 +12,6 @@ const updateModel = ({ isOpen, onClose }) => {
     JSON.parse(sessionStorage.getItem("userData")) || ""
   );
 
-  // console.log(JSON.parse(sessionStorage.getItem("userData")));
 
   const handleChange = (e) => {
     const { name, value } = e.target;

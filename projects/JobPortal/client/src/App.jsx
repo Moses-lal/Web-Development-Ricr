@@ -11,6 +11,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register"
 import Userdash from "./pages/userdash";
 import { Toaster } from "react-hot-toast";
+import RecruiterDashbaord from "./pages/RecruiterDash";
 
 const App = () => {
   return (
@@ -27,7 +28,7 @@ const App = () => {
           <Route path={"/login"} element={<Login />} />
           <Route path={"/register"} element={<Register />} />
           <Route path={"/userdash"} element={<Userdash />} />
-
+          <Route path={"/recruitdash"} element={<RecruiterDashbaord />} />
 
         </Routes>
       </BrowserRouter>

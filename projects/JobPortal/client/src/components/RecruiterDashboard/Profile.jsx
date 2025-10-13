@@ -1,38 +1,57 @@
-import React, { useEffect, useState } from 'react'
-import UpdateProfileModal from "../UserDashboard/updatemodel"
+import React, { useEffect, useState } from "react";
 import { RxLinkedinLogo, RxGithubLogo, RxInstagramLogo } from "react-icons/rx";
 import { RiTwitterXLine } from "react-icons/ri";
+import { TbWorldWww } from "react-icons/tb";
 import { FcCamera } from "react-icons/fc";
+import api from "../../config/api";
+import toast from "react-hot-toast";
+import { useAuth } from "../../context/authcontext";
+import UpdateProfileModal from "../RecruiterDashboard/UpdateProfile";
 
 
+const Profile = () => {
 
- const Profile = () => {
+  const { user, setUser } = useAuth();
 
-   const [user,setuser] = useState(null);
+  const [loading, setLoading] = useState(true);
 
-   const [loading,setloading] = useState(true);
+  const [isUpdateModalOpen, setUpdateModalOpen] = useState(false);
 
-   const [UpdateModelOpen,setUpdateModalOpen]= useState(false);
+  const [preview, setPreview] = useState("");
 
-   const [preview,setpreview] = useState("");
+  const handlePreview = async (e) => {
+    const file = e.target.files[0];
+    const fileURL = URL.createObjectURL(file);
+    setPreview(fileURL);
 
-
-   useEffect(()=>{
     try {
-      const data = JSON.parse(sessionStorage.getItem("userData"))
-      setuser(data || null)
+      const formData = new FormData();
+      formData.append("profilePicture", file);
+      const res = await api.patch("/user/changePhoto", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      toast.success(res.data.message);
+      sessionStorage.setItem("userData", JSON.stringify(res.data.data));
+      setUser(res.data.data);
+      setPreview("");
     } catch (error) {
-      console.log("error is useffect setuser ",error );
-      setuser(null)
-    } finally{
-      setloading(false)
+      console.log(error);
+      toast.error(
+        `Error : ${error.response?.status} | ${error.response?.data?.message}`
+      );
+
+      setTimeout(() => {
+        setPreview("");
+      }, 5000);
     }
+  };
 
-   },[])
+  useEffect(() => {
+    setLoading(!user);
+  }, [user]);
 
-
-  if(loading){
-    return(
+  if (loading) {
+    return (
       <div className="min-h-[90vh] flex items-center justify-center bg-gray-50">
         <div className="w-full max-w-md space-y-4 animate-pulse p-6">
           <div className="h-32 bg-gray-200 rounded-xl" />
@@ -46,20 +65,17 @@ import { FcCamera } from "react-icons/fc";
           </div>
         </div>
       </div>
-    )
-
+    );
   }
-  
-
 
   if (!user) {
     return (
-      <div className=" flex items-center justify-center bg-gray-50 px-4  mt-8">
+      <div className=" flex items-center justify-center bg-gray-50 px-4">
         <div className="bg-white shadow-sm border border-gray-200 rounded-xl p-8 text-center max-w-md w-full">
           <h2 className="text-xl font-semibold text-[var(--primary)] mb-2">
             Please login first
           </h2>
-          <p className="text-md text-gray-800">
+          <p className="text-sm text-gray-500">
             Your session has no user data.
           </p>
         </div>
@@ -67,25 +83,19 @@ import { FcCamera } from "react-icons/fc";
     );
   }
 
-
-   const statItems = [
-    { label: "Gender", value: user.gender || "N/A" },
+  const statItems = [
+    { label: "Email", value: user.email || "N/A" },
+    { label: "Phone", value: user.phone || "N/A" },
+    { label: "Gender", value: user.gender.toUpperCase() || "N/A" },
     { label: "DOB", value: user.dob || "N/A" },
-    { label: "Experience", value: user.exp || "N/A" },
-    { label: "Qualification", value: user.qualification || "N/A" },
   ];
 
   return (
     <>
-      <div className="h-full bg-gray-50 py-8">
-
-        <div className="w-6xl mx-auto space-y-8">
-
-
-
+      <div className="bg-gray-50 py-8 px-4">
+        <div className="max-w-5xl mx-auto space-y-8">
+          {/* Header Card */}
           <div className="bg-white border border-gray-200 shadow-sm rounded-2xl p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6">
-
-            {/* image  */}
             <div className="flex-shrink-0">
               <div className="relative w-32 h-32">
                 <img
@@ -104,22 +114,19 @@ import { FcCamera } from "react-icons/fc";
                   name="dp"
                   id="dp"
                   className="hidden"
-                  // onChange={handlePreview}
+                  onChange={handlePreview}
                 />
               </div>
             </div>
 
-
-            
             <div className="flex-1 space-y-3">
-
               <div className="flex justify-between">
                 <div>
                   <h1 className="text-2xl md:text-3xl font-semibold text-[var(--primary)] tracking-tight">
                     {user.fullName}
                   </h1>
-                  <p className="text-md text-gray-500 mt-1">
-                    Job Seeker Profile
+                  <p className="text-sm text-gray-500 mt-1">
+                    Recruiter Profile
                   </p>
                 </div>
                 <div>
@@ -134,15 +141,13 @@ import { FcCamera } from "react-icons/fc";
                   </button>
                 </div>
               </div>
-
-
-              <div className="grid grid-cols-4 gap-4">
+              <div className="flex justify-around">
                 {statItems.map((s) => (
                   <div
                     key={s.label}
-                    className="bg-gray-100 rounded-lg px-3 py-3 text-center"
+                    className="bg-gray-100 rounded-lg min-w-40 px-3 py-3 flex flex-col justify-center items-center "
                   >
-                    <div className="text-xs uppercase tracking-wide text-gray-500 font-medium">
+                    <div className="text-xs uppercase text-gray-500 font-medium">
                       {s.label}
                     </div>
                     <div className="text-sm font-semibold text-[var(--primary)] mt-1">
@@ -151,85 +156,71 @@ import { FcCamera } from "react-icons/fc";
                   </div>
                 ))}
               </div>
-
             </div>
-
           </div>
-
-
-
 
           {/* Details Grid */}
           <div className="grid md:grid-cols-3 gap-6">
-
-
-
-
             <div className="md:col-span-2 space-y-6">
-
               <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <h2 className="text-lg font-semibold text-[var(--primary)] mb-4">
-                  Bio
+                  {user.companyName}
+                </h2>
+                <h3 className="text-md  text-[var(--secondary)] mb-4">
+                  {user.companyDetail}
+                </h3>
+                <div className="flex justify-between text-sm">
+                  <div className="flex gap-5">
+                    <span className="text-[var(--secondary)]">
+                      Company Since:
+                    </span>
+                    <span>{user.companySince}</span>
+                  </div>
+                  <div className="flex gap-5">
+                    <span className="text-[var(--secondary)]">
+                      Total Employees:
+                    </span>
+                    <span>{user.companyEmployees}</span>
+                  </div>
+                </div>
+              </section>
+              <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+                <h2 className="text-lg font-semibold text-[var(--primary)] mb-4">
+                  Company Description
                 </h2>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  {user.bio || "This user hasn't added a summary yet."}
+                  {user.companyDescription ||
+                    "This user hasn't added a summary yet."}
                 </p>
               </section>
-
-              <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
-                <h2 className="text-lg font-semibold text-[var(--primary)] mb-4">
-                  Skills
-                </h2>
-                {user.skills ? (
-                  <div className="flex flex-wrap gap-2">
-                    {user.skills.split(",").map((sk) => (
-                      <span
-                        key={sk.trim()}
-                        className="px-3 py-1 text-xs font-medium bg-gray-100 text-[var(--primary)] rounded-full"
-                      >
-                        {sk.trim()}
-                      </span>
-                    ))}
-                  </div>
-                ) : (
-                  <p className="text-sm text-gray-500">No skills provided.</p>
-                )}
-              </section>
-              
             </div>
 
-
-
             <div className="space-y-6">
-
               <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <h2 className="text-lg font-semibold text-[var(--primary)] mb-4">
-                  Contact
+                  Official Contact
                 </h2>
                 <ul className="space-y-2 text-sm text-gray-600">
                   <li>
                     <span className="font-medium text-[var(--primary)]">
                       Email:
                     </span>{" "}
-                    {user.email}
+                    {user.companyEmail}
                   </li>
                   <li>
                     <span className="font-medium text-[var(--primary)]">
                       Phone:
                     </span>{" "}
-                    {user.phone || "N/A"}
+                    {user.companyPhone || "N/A"}
                   </li>
                   <li>
                     <span className="font-medium text-[var(--primary)]">
                       Address:
                     </span>{" "}
-                    {user.address || "N/A"}
+                    {user.companyAddress || "N/A"}
                   </li>
                 </ul>
               </section>
-
-
-
               <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <h2 className="text-lg font-semibold text-[var(--primary)] mb-4">
                   Socials
@@ -247,12 +238,12 @@ import { FcCamera } from "react-icons/fc";
                   </li>
                   <li>
                     <a
-                      href={user.github || "#"}
+                      href={user.companyWebsite || "#"}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="hover:text-black text-[var(--secondary)] text-lg"
                     >
-                      <RxGithubLogo />
+                      <TbWorldWww />
                     </a>
                   </li>
                   <li>
@@ -277,23 +268,13 @@ import { FcCamera } from "react-icons/fc";
                   </li>
                 </ul>
               </section>
-
             </div>
-
-
-
           </div>
-
-
-
-
-
-          
         </div>
       </div>
 
       <UpdateProfileModal
-        isOpen={UpdateModelOpen}
+        isOpen={isUpdateModalOpen}
         onClose={() => setUpdateModalOpen(false)}
       />
     </>
@@ -301,9 +282,3 @@ import { FcCamera } from "react-icons/fc";
 };
 
 export default Profile;
-
-
-
-
-
-  

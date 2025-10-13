@@ -27,6 +27,11 @@ const Register = () => {
     let isvalid = true;
     const err = {};
 
+     if(!registerData.role){
+      err.role = "Please select a Role";
+      isvalid = false;
+    }
+
     if (registerData.fullName.length < 3) {
       err.fullName = " Name Should be of atleast 3 character ";
       isvalid = false;
@@ -117,6 +122,23 @@ const Register = () => {
         <div className="min-w-md bg-white rounded-2xl p-8 space-y-10 ">
           <h1 className="text-blue-800 text-2xl text-center font-medium"> Register </h1>
           <form className="space-y-6" onSubmit={handleSubmit}>
+            <div className="flex">
+              <label
+                className="block text-2xl mb-1"
+                htmlFor="role"
+              >
+                Role :
+              </label>
+              <div className="flex gap-3 items-center ml-4">
+                <input type="radio" name="role" id="applicant" value={"applicant"} onChange={handlechange} />
+                <label htmlFor="applicant" className="text-xl hover:underline hover:text-green-600">Applicant</label>
+                <input type="radio" name="role" id="recruiter" value={"recruiter"} onChange={handlechange} />
+                <label htmlFor="recruiter" className="text-xl hover:underline hover:text-green-600">Recruiter</label>
+              </div>
+              {error.role && (
+                <p className="text-red-500 text-sm mt-1">{error.role}</p>
+              )}
+            </div>
             <div>
               <div className="space-x-6">
                 <label className="text-2xl">FullName:</label>
@@ -206,7 +228,7 @@ const Register = () => {
             </div>
 
             <button type="submit" className="border w-full p-3 rounded-2xl">
-              Register
+               {loading ? "Registering..." : "Register"}
             </button>
           </form>
         </div>

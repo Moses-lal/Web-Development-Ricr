@@ -1,23 +1,21 @@
 import jwt from "jsonwebtoken";
 
+export const genauthtoken = (user, res) => {
+  try {
 
-export const genauthtoken  = async (user,res)=>{
- try {
-    
-    const token = await jwt.sign({id: user._id},process.env.SECRECT_KEY,{expiresIn:"1d"})
+    const token = jwt.sign({ id: user._id }, process.env.SECRET_KEY, {
+      expiresIn: "1d",
+    });
 
-    res.cookie("tokencookie", token ,{
-        maxage : 1000 * 60 * 60*24,
-        httponly : true,
-        samesite:"lax",
-        strict:false,
-    })
-
-     return true;
+    res.cookie("tokencookie", token, {
+      maxAge: 1000 * 60 * 60 * 24,
+      httpOnly: true,
+      secure: false,
+      sameSite: "lax",
+    });
 
 
- } catch (error) {
-    console.log("token creation error " , error);
-     return false    
- }
-}
+  } catch (error) {
+    console.log("token creation error ", error);
+  }
+};
