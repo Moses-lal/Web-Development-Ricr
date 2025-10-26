@@ -1,38 +1,57 @@
-import React, { useEffect, useState } from 'react'
-import UpdateProfileModal from "../UserDashboard/updatemodel"
+import React, { useEffect, useState } from "react";
+import UpdateProfileModal from "../UserDashboard/updatemodel";
 import { RxLinkedinLogo, RxGithubLogo, RxInstagramLogo } from "react-icons/rx";
 import { RiTwitterXLine } from "react-icons/ri";
 import { FcCamera } from "react-icons/fc";
+import api from "../../config/api";
+import toast from "react-hot-toast";
+import { useAuth } from "../../context/authcontext";
 
+const Profile = () => {
+  const { user , setUser } = useAuth();
 
+  const [loading, setloading] = useState(true);
 
- const Profile = () => {
+  const [UpdateModelOpen, setUpdateModalOpen] = useState(false);
 
-   const [user,setuser] = useState(null);
+  const [preview, setpreview] = useState("");
 
-   const [loading,setloading] = useState(true);
+  useEffect(() => {
+    setloading(false);
+  }, [user]);
 
-   const [UpdateModelOpen,setUpdateModalOpen]= useState(false);
+ 
+  const handlePreview = async (e) => {
+    const file = e.target.files[0];
+    const fileURL = URL.createObjectURL(file);
+    setpreview(fileURL);
 
-   const [preview,setpreview] = useState("");
-
-
-   useEffect(()=>{
     try {
-      const data = JSON.parse(sessionStorage.getItem("userData"))
-      setuser(data || null)
+      const formData = new FormData();
+      formData.append("profilePicture", file);
+      const res = await api.patch("/user/changephoto", formData, {
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      toast.success(res.data.message);
+      sessionStorage.setItem("userData", JSON.stringify(res.data.data));
+      setUser(res.data.data);
+      setpreview("");
     } catch (error) {
-      console.log("error is useffect setuser ",error );
-      setuser(null)
-    } finally{
-      setloading(false)
+      console.log(error);
+      toast.error(
+        `Error : ${error.response?.status} | ${error.response?.data?.message}`
+      );
+
+      setTimeout(() => {
+        setpreview("");
+      }, 5000);
     }
+  };
 
-   },[])
 
 
-  if(loading){
-    return(
+  if (loading) {
+    return (
       <div className="min-h-[90vh] flex items-center justify-center bg-gray-50">
         <div className="w-full max-w-md space-y-4 animate-pulse p-6">
           <div className="h-32 bg-gray-200 rounded-xl" />
@@ -46,10 +65,9 @@ import { FcCamera } from "react-icons/fc";
           </div>
         </div>
       </div>
-    )
-
+    );
   }
-  
+
 
 
   if (!user) {
@@ -68,23 +86,24 @@ import { FcCamera } from "react-icons/fc";
   }
 
 
-   const statItems = [
+
+
+  const statItems = [
     { label: "Gender", value: user.gender || "N/A" },
     { label: "DOB", value: user.dob || "N/A" },
     { label: "Experience", value: user.exp || "N/A" },
     { label: "Qualification", value: user.qualification || "N/A" },
   ];
 
+
+
+  
+  
   return (
     <>
       <div className="h-full bg-gray-50 py-8">
-
         <div className="w-6xl mx-auto space-y-8">
-
-
-
           <div className="bg-white border border-gray-200 shadow-sm rounded-2xl p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6">
-
             {/* image  */}
             <div className="flex-shrink-0">
               <div className="relative w-32 h-32">
@@ -104,15 +123,12 @@ import { FcCamera } from "react-icons/fc";
                   name="dp"
                   id="dp"
                   className="hidden"
-                  // onChange={handlePreview}
+                  onChange={handlePreview}
                 />
               </div>
             </div>
 
-
-            
             <div className="flex-1 space-y-3">
-
               <div className="flex justify-between">
                 <div>
                   <h1 className="text-2xl md:text-3xl font-semibold text-[var(--primary)] tracking-tight">
@@ -135,7 +151,6 @@ import { FcCamera } from "react-icons/fc";
                 </div>
               </div>
 
-
               <div className="grid grid-cols-4 gap-4">
                 {statItems.map((s) => (
                   <div
@@ -151,22 +166,12 @@ import { FcCamera } from "react-icons/fc";
                   </div>
                 ))}
               </div>
-
             </div>
-
           </div>
-
-
-
 
           {/* Details Grid */}
           <div className="grid md:grid-cols-3 gap-6">
-
-
-
-
             <div className="md:col-span-2 space-y-6">
-
               <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <h2 className="text-lg font-semibold text-[var(--primary)] mb-4">
                   Bio
@@ -195,13 +200,9 @@ import { FcCamera } from "react-icons/fc";
                   <p className="text-sm text-gray-500">No skills provided.</p>
                 )}
               </section>
-              
             </div>
 
-
-
             <div className="space-y-6">
-
               <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <h2 className="text-lg font-semibold text-[var(--primary)] mb-4">
                   Contact
@@ -227,8 +228,6 @@ import { FcCamera } from "react-icons/fc";
                   </li>
                 </ul>
               </section>
-
-
 
               <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
                 <h2 className="text-lg font-semibold text-[var(--primary)] mb-4">
@@ -277,18 +276,8 @@ import { FcCamera } from "react-icons/fc";
                   </li>
                 </ul>
               </section>
-
             </div>
-
-
-
           </div>
-
-
-
-
-
-          
         </div>
       </div>
 
@@ -301,9 +290,3 @@ import { FcCamera } from "react-icons/fc";
 };
 
 export default Profile;
-
-
-
-
-
-  

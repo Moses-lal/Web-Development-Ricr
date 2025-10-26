@@ -22,9 +22,17 @@ export const AuthProvider = (props) => {
     // }
 
     setIsLogin(!!user);
+    setIsRecruiter(user?.role === "recruiter");
   }, [user]);
 
-  const value = { user, setuser, isLogin, setIsLogin ,isRecruiter, setIsRecruiter};
+  const value = {
+    user,
+    setuser,
+    isLogin,
+    setIsLogin,
+    isRecruiter,
+    setIsRecruiter,
+  };
 
   return (
     <AuthContext.Provider value={value}>{props.children}</AuthContext.Provider>

@@ -1,8 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
-
-
-
 import express from "express";
 import cors from "cors";
 import cookieParser from "cookie-parser";
@@ -10,7 +5,7 @@ import connectDB from "./src/config/db.js";
 import AuthRouter from "./src/routes/authRouter.js";
 import UserRouter from './src/routes/userRouter.js'
 import morgan from "morgan";
-// import cloudinary from "./src/config/cloudinary.js"
+import cloudinary from "./src/config/cloudinary.js"
 
 
 
@@ -51,7 +46,6 @@ app.get("/", (req, res) => {
 
 
 
-
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;
   const message = err.message || "Internal Server Error";
@@ -63,17 +57,18 @@ app.use((err, req, res, next) => {
 
 
 
-
 const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
   console.log(`Server is running on port ${PORT}`);
   connectDB();
   try {
-    // const res = await cloudinary.api.ping()
-
+    const res = await cloudinary.api.ping()
+    console.log("Cloudinary API is working: ",res);
+    
     
   } catch (error) {
+    console.error("Error in connecting to Cloudinary API: ", error);
     
   }
 });

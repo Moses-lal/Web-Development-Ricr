@@ -41,7 +41,7 @@ const Login = () => {
       sessionStorage.setItem("userData", JSON.stringify(res.data.data));
       setIsLogin(true);
       setuser(res.data.data);
-      setIsRecruiter(res.data.data.role === "recruiter");
+      res.data.data.role === "recruiter" && setIsRecruiter(true);
       setLoginData({
       email: "",
       password:"",
