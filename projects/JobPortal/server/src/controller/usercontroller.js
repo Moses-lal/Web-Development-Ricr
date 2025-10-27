@@ -69,7 +69,7 @@ export const UpdateProfile = async (req, res, next) => {
 };
 
 
-export const changephoto = async(res,req,next)=>{
+export const changephoto = async(req, res, next)=>{
   
   try {
 
@@ -79,9 +79,8 @@ export const changephoto = async(res,req,next)=>{
 
     const dp = req.file;
 
+    
 
-
-    console.log(dp);
     if (!dp) {
       const error = new Error("Profile picture is required");
       error.statusCode = 400;
@@ -89,8 +88,8 @@ export const changephoto = async(res,req,next)=>{
     }
 
 
-    if (currentUser.photoId !== "N/A") {
-      await cloudinary.uploader.destroy(currentUser.photoId);
+    if (currentUser.photoid !== "N/A") {
+      await cloudinary.uploader.destroy(currentUser.photoid);
     }
 
     const b64 = Buffer.from(dp.buffer).toString("base64");
@@ -106,7 +105,7 @@ export const changephoto = async(res,req,next)=>{
     });
     console.log("File uploaded successfully:", result);
     currentUser.photo = result.secure_url;
-    currentUser.photoId = result.public_id;
+    currentUser.photoid = result.public_id;
 
     const updatedUser = await currentUser.save();
 
@@ -117,7 +116,7 @@ export const changephoto = async(res,req,next)=>{
 
     
   } catch (error) {
-    
+    next(error)
   }
 }
 

@@ -8,6 +8,7 @@ import toast from "react-hot-toast";
 import { useAuth } from "../../context/authcontext";
 
 const Profile = () => {
+  
   const { user , setUser } = useAuth();
 
   const [loading, setloading] = useState(true);
