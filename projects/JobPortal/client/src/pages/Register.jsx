@@ -9,6 +9,7 @@ const Register = () => {
   const [registerData, setRegisterData] = useState({
     fullName: "",
     email: "",
+    role :"",
     phone: "",
     password: "",
     confirmPassword: "",
@@ -99,6 +100,7 @@ const Register = () => {
       setRegisterData({
         fullName: "",
         email: "",
+        role: "",
         phone: "",
         password: "",
         confirmPassword: "",
@@ -147,6 +149,7 @@ const Register = () => {
                   id="fullName"
                   name="fullName"
                   className="border p-1"
+                  value={registerData.fullName}
                   onChange={handlechange}
                 />
               </div>
@@ -165,6 +168,7 @@ const Register = () => {
                   id="email"
                   name="email"
                   className="border p-1"
+                  value={registerData.email}
                   onChange={handlechange}
                 />
               </div>
@@ -181,6 +185,7 @@ const Register = () => {
                   className="border p-1"
                   id="password"
                   name="password"
+                  value={registerData.password}
                   onChange={handlechange}
                 />
               </div>
@@ -199,6 +204,7 @@ const Register = () => {
                   className="border p-1"
                   id="confirmPassword"
                   name="confirmPassword"
+                  value={registerData.confirmPassword}
                   onChange={handlechange}
                 />
               </div>
@@ -217,6 +223,7 @@ const Register = () => {
                   id="phone"
                   name="phone"
                   className="border p-1"
+                  value={registerData.phone}
                   onChange={handlechange}
                 />
               </div>

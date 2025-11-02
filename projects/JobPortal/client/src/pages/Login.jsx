@@ -49,7 +49,7 @@ const Login = () => {
       password:"",
     });
     res.data.data.role === "recruiter"
-        ? navigate("/recruiterdashboard")
+        ? navigate("/recruitdash")
         : navigate("/userdash");
 
     } catch (error) {
