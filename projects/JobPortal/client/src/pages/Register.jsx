@@ -120,8 +120,8 @@ const Register = () => {
       <div className=" bg-gray-900 min-h-screen flex items-center justify-center">
 
         <div className="min-w-md bg-white rounded-2xl p-8 space-y-10 ">
-          <h1 className="text-blue-800 text-2xl text-center font-medium"> Register </h1>
           <form className="space-y-6" onSubmit={handleSubmit}>
+          <h1 className="text-blue-800 text-2xl text-center font-medium"> Register </h1>
             <div className="flex">
               <label
                 className="block text-2xl mb-1"

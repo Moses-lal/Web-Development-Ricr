@@ -1,6 +1,10 @@
 import bcrypt from "bcrypt";
 import user from "../models/usermodel.js";
 import { genauthtoken } from "../utils/token.js";
+import OTP from "../models/otpModel.js";
+import { sendForgetPasswordOTP } from "../utils/sendEmail.js";
+
+
 
 export const register = async (req, res, next) => {
   try {
@@ -41,6 +45,7 @@ export const register = async (req, res, next) => {
   }
 };
 
+
 export const login = async (req, res, next) => {
   try {
 
@@ -61,11 +66,7 @@ export const login = async (req, res, next) => {
     }
 
 
-    const match = await bcrypt.compare(
-      password,
-      existinguser.password
-    );
-
+    const match = await bcrypt.compare( password, existinguser.password);
     if (!match) {
       const error = new Error("password does not match ");
       error.statuscode = 401;
@@ -87,7 +88,104 @@ export const login = async (req, res, next) => {
 
 export const logout = async (req, res, next) => {
   try {
+    res.clearCookie("tokencookie");
     res.status(200).json({ message: "login succesful " });
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+
+
+export const SendOTP = async (req, res, next) => {
+  try {
+    const { email } = req.body;
+
+    if (!email) {
+      const error = new Error("All Fields Required");
+      error.statusCode = 400;
+      return next(error);
+    }
+
+    const existingUser = await User.findOne({ email });
+    if (!existingUser) {
+      const error = new Error("User not Registred");
+      error.statusCode = 401;
+      return next(error);
+    }
+
+    const otp = Math.floor(Math.random() * 900000 + 100000).toString();
+    const hashedOTP = await bcrypt.hash(otp, 10);
+    await OTP.create({ email, otp: hashedOTP });
+
+    if (!sendForgetPasswordOTP(email, otp)) {
+      const error = new Error("Error Sending OTP");
+      error.statusCode = 400;
+      return next(error);
+    }
+
+    res.status(200).json({ message: "OTP sent Sucessfull" });
+  } catch (error) {
+    next(error);
+  }
+};
+
+
+export const VerifyOTP = async (req, res, next) => {
+  try {
+    const { email, otp } = req.body;
+
+    if (!email || !otp) {
+      const error = new Error("All Fields Required");
+      error.statusCode = 400;
+      return next(error);
+    }
+
+    const existingOTP = await OTP.findOne({ email });
+    if (!existingOTP) {
+      const error = new Error("OTP Expired");
+      error.statusCode = 404;
+      return next(error);
+    }
+
+    const isVerified = await bcrypt.compare(otp, existingOTP.otp);
+    if (!isVerified) {
+      const error = new Error("Wrong OTP");
+      error.statusCode = 401;
+      return next(error);
+    }
+
+    res.status(200).json({ message: "OTP Verified" });
+  } catch (error) {
+    next(error);
+  }
+};
+
+export const ForgetPassword = async (req, res, next) => {
+  try {
+    const { email, newPassword } = req.body;
+
+    if (!email || !newPassword) {
+      const error = new Error("All Fields Required");
+      error.statusCode = 400;
+      return next(error);
+    }
+
+    const existingUser = await User.findOne({ email });
+    if (!existingUser) {
+      const error = new Error("User not Registred");
+      error.statusCode = 401;
+      return next(error);
+    }
+
+    const hashedPassword = await bcrypt.hash(newPassword, 10);
+
+    existingUser.password = hashedPassword;
+
+    await existingUser.save();
+
+    res.status(200).json({ message: "Password Reset Successfull" });
   } catch (error) {
     next(error);
   }

@@ -4,7 +4,7 @@ import api from "../config/api";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/authcontext";
-
+import  ForgetPassword  from "./ForgetPassword";
 
 
 const Login = () => {
@@ -17,7 +17,9 @@ const Login = () => {
     password: "",
   });
 
-  const [loading,setloading] = useState(true)
+  const [forgetPasswordModal, setForgetPasswordModal] = useState(false);
+
+  const [loading,setloading] = useState(false)
 
   const handlechange = (e) => {
     // const Name = e.target.name;
@@ -65,47 +67,80 @@ const Login = () => {
 
   return (
     <>
-      <div className=" bg-gray-900 min-h-screen flex items-center justify-center">
+      <section className=" bg-gray-900 min-h-screen flex items-center justify-center">
 
         
-        <div className="min-w-md border border-black  rounded-2xl  bg-white space-y-10 p-8">
-          <h1 className="text-3xl text-center p-3 font-medium text-[var(--tertiary)]">Login to Portal </h1>
-          <form className="space-y-6" onSubmit={handleSubmit}>
-            <div className="space-x-6"> 
-              <label className="text-2xl text-black ">Email:</label>
+        <div className="w-[80rem] h-[40rem] rounded-2xl  bg-white space-y-10 p-8 flex space-x-10 ">
+
+          <div className="mt-10">
+            <img src="./hero.jpg" className="h-full w-160 object-cover rounded-xl" />
+          </div>
+
+          <form className="space-y-6 rounded-2xl p-15 bg-[var(--text)]" onSubmit={handleSubmit}>
+          <h1 className="text-3xl text-center p-3 font-medium text-white italic">Welcome to Hustle World</h1>
+
+            <div> 
+              <label className="text-xl italic text-[var(--secondary)] font-bold ">Email:</label>
+              <br />
               <input
                 type="email"
                 id="email"
                 name="email"
                 onChange={handlechange}
                 value={loginData.email}
-                className="border border-blue-800 shadow-sm shadow-cyan-700 w-50 p-1"
-                 placeholder="yourexample@.com"
+                className="border border-blue-800 shadow-sm shadow-cyan-700 rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-none focus:shadow-md focus:shadow-green-500"
+                placeholder="yourexample@.com"
+                required
               />
             </div>
 
-            <div className="space-x-6">
-              <label className="text-2xl text-black ">Password:</label>
+            <div>
+              <label className="text-xl italic text-[var(--secondary)] font-bold ">Password:</label>
+              <br />
               <input
                 type="password"
                 onChange={handlechange}
                 value={loginData.password}
                 name="password"
-                className="border  border-blue-800 shadow-sm shadow-cyan-700 w-50 p-1"
+                className="border border-blue-800 shadow-sm shadow-cyan-700  rounded w-full p-2 focus:outline-none focus:ring-2 focus:ring-cyan-300 focus:border-none focus:shadow-md focus:shadow-green-500"
                 id="password"
-                placeholder="*********"
+                placeholder="**************"
+                required
               />
+            </div>
+
+            <div className="text-right">
+              <button className="text-[var(--secondary)] font-bold underline" onClick={(e)=>{
+                e.preventDefault();
+                setForgetPasswordModal(true);
+              }} >Forgot password?</button>
             </div>
 
             <button
               type="submit"
-              className="border w-full rounded-2xl shadow p-3 text-blue-300 "
+              className="border w-full rounded-2xl font-bold p-3 text-white "
             >
-              Login
+              {loading ? "Logging in ..." : "Login"}
             </button>
+
+
+            <div className="text-center">
+              _______________ or _______________
+             
+             <br />
+              <span className="text-md">Are you new ? <span className="underline">create an Account</span></span>
+            </div>
+
           </form>
         </div>
-      </div>
+
+        <ForgetPassword
+        isOpen={forgetPasswordModal}
+        onClose={() => setForgetPasswordModal(false)}
+      />
+
+      </section>
+       
     </>
   );
 };
