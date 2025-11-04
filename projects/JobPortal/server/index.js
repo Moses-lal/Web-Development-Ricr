@@ -4,12 +4,14 @@ import cookieParser from "cookie-parser";
 import connectDB from "./src/config/db.js";
 import AuthRouter from "./src/routes/authRouter.js";
 import UserRouter from './src/routes/userRouter.js'
+// import RecruiterRouter from ''
 import morgan from "morgan";
 import cloudinary from "./src/config/cloudinary.js"
 
 
-const app = express();
 
+
+const app = express();
 
 
 app.use(cors({ origin: "http://localhost:5173", credentials: true }));
@@ -24,7 +26,8 @@ app.use(morgan("dev"));
 
 app.use("/auth", AuthRouter);
 app.use("/user", UserRouter )
-
+app.use("/recruiter", RecruiterRouter);
+app.use("/public", PublicRouter);
 
 
 
