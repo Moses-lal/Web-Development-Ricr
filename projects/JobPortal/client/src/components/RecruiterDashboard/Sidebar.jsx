@@ -1,5 +1,6 @@
 import React from "react";
 import { FcHome, FcManager, FcDocument } from "react-icons/fc";
+import { GiSuitcase } from "react-icons/gi";
 import api from "../../config/api";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
@@ -8,11 +9,14 @@ import { useAuth } from "../../context/AuthContext";
 const navItems = [
   { value: "overview", text: "Overview", icons: <FcHome /> },
   { value: "profile", text: "Profile", icons: <FcManager /> },
+  { value: "jobs", text: "Jobs", icons: <GiSuitcase /> },
   { value: "application", text: "Application", icons: <FcDocument /> },
 ];
 
+
 const Sidebar = ({ active, setActive }) => {
-  const { setUser, setIsLogin } = useAuth();
+
+  const { setUser, setIsLogin ,setIsRecruiter} = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -22,6 +26,7 @@ const Sidebar = ({ active, setActive }) => {
       sessionStorage.removeItem("userData");
       setUser("");
       setIsLogin(false);
+      setIsRecruiter(false);
       navigate("/");
     } catch (error) {
       console.log(error);
@@ -59,17 +64,17 @@ const Sidebar = ({ active, setActive }) => {
     <>
       <div className="bg-gradient-to-b from-[var(--primary)]  to-[var(--secondary)] h-full p-2 flex flex-col justify-between">
         <div>
-          <h1 className="text-lg border-b-2 border-[var(--background)] text-center text-[var(--text)] font-bold">
+          <h1 className="text-2xl border-b-2 border-[var(--background)] text-center text-[var(--text)] font-bold pb-3 pt-3">
             {" "}
-            Applicant Dashbaord
+            Recruiter Dashboard
           </h1>
 
-          <div>
-            <ul className="p-5 space-y-2">
+          <div className="text-lg ">
+            <ul className="p-5 space-y-4">
               {navItems.map((item, idx) => (
                 <li
                   key={idx}
-                  className={`flex gap-2 items-center p-2 border border-[var(--background)] rounded-lg ${
+                  className={`flex gap-2 items-center p-3 border border-[var(--background)] rounded-lg ${
                     active === item.value
                       ? "bg-[var(--tertiary)] "
                       : "hover:bg-[var(--background)] text-[var(--text)]"

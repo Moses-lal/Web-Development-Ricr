@@ -90,7 +90,7 @@ export const login = async (req, res, next) => {
 export const logout = async (req, res, next) => {
   try {
     res.clearCookie("tokencookie");
-    res.status(200).json({ message: "login succesful " });
+    res.status(200).json({ message: "logout succesfull " });
   } catch (error) {
     next(error);
   }

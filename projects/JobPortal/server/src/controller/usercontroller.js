@@ -6,6 +6,7 @@ import user from '../models/usermodel.js'
 export const UpdateProfile = async (req, res, next) => {
   try {
     const {
+      role,
       fullName,
       skills,
       qualification,
@@ -19,50 +20,108 @@ export const UpdateProfile = async (req, res, next) => {
       insta,
       twitter,
       gender,
+      companyName,
+      companyAddress,
+      companyEmail,
+      companyPhone,
+      companyWebsite,
+      companyDescription,
+      companyDetail,
+      companySince,
+      companyEmployees,
     } = req.body;
 
     const currentUser = req.user;
 
-    if (
-      !fullName ||
-      !phone ||
-      !gender ||
-      !dob ||
-      !qualification ||
-      !exp ||
-      !address ||
-      !bio ||
-      !linkedin ||
-      !github ||
-      !insta ||
-      !twitter ||
-      !skills
-    ) {
-      const error = new Error("All fields are required");
-      error.statusCode = 400;
-      return next(error);
+    if (currentUser.role === "applicant") {
+      if (
+        !fullName ||
+        !phone ||
+        !gender ||
+        !dob ||
+        !qualification ||
+        !exp ||
+        !address ||
+        !bio ||
+        !linkedin ||
+        !github ||
+        !insta ||
+        !twitter ||
+        !skills
+      ) {
+        const error = new Error("All fields are required applicant");
+        error.statusCode = 400;
+        return next(error);
+      }
+
+      currentUser.fullName = fullName;
+      currentUser.phone = phone;
+      currentUser.gender = gender;
+      currentUser.dob = dob;
+      currentUser.qualification = qualification;
+      currentUser.exp = exp;
+      currentUser.address = address;
+      currentUser.bio = bio;
+      currentUser.linkedin = linkedin;
+      currentUser.github = github;
+      currentUser.insta = insta;
+      currentUser.twitter = twitter;
+      currentUser.skills = skills;
+
+      const updatedUser = await currentUser.save();
+
+      res.status(200).json({
+        message: "Profile updated successfully",
+        data: updatedUser,
+      });
+    } else if (currentUser.role === "recruiter") {
+      if (
+        !fullName ||
+        !phone ||
+        !gender ||
+        !dob ||
+        !companyName ||
+        !companyAddress ||
+        !companyEmail ||
+        !companyPhone ||
+        !companyWebsite ||
+        !companyDescription ||
+        !companyDetail ||
+        !companySince ||
+        !companyEmployees ||
+        !linkedin ||
+        !insta ||
+        !twitter
+      ) {
+        const error = new Error("All fields are required Recruiter");
+        error.statusCode = 400;
+        return next(error);
+      }
+
+      currentUser.fullName = fullName;
+      currentUser.phone = phone;
+      currentUser.gender = gender;
+      currentUser.dob = dob;
+      currentUser.companyName = companyName;
+      currentUser.companyAddress = companyAddress;
+      currentUser.companyEmail = companyEmail;
+      currentUser.companyPhone = companyPhone;
+      currentUser.companyWebsite = companyWebsite;
+      currentUser.companyDescription = companyDescription;
+      currentUser.companyDetail = companyDetail;
+      currentUser.companySince = companySince;
+      currentUser.companyEmployees = companyEmployees;
+      currentUser.linkedin = linkedin;
+      currentUser.insta = insta;
+      currentUser.twitter = twitter;
+
+      const updatedUser = await currentUser.save();
+
+      res.status(200).json({
+        message: "Profile updated successfully",
+        data: updatedUser,
+      });
     }
-
-    currentUser.fullName = fullName;
-    currentUser.phone = phone;
-    currentUser.gender = gender;
-    currentUser.dob = dob;
-    currentUser.qualification = qualification;
-    currentUser.exp = exp;
-    currentUser.address = address;
-    currentUser.bio = bio;
-    currentUser.linkedin = linkedin;
-    currentUser.github = github;
-    currentUser.insta = insta;
-    currentUser.twitter = twitter;
-    currentUser.skills = skills;
-
-    const updatedUser = await currentUser.save();
-
-    res.status(200).json({
-      message: "Profile updated successfully",
-      data: updatedUser,
-    });
   } catch (error) {
     next(error);
   }
