@@ -4,7 +4,8 @@ import cookieParser from "cookie-parser";
 import connectDB from "./src/config/db.js";
 import AuthRouter from "./src/routes/authRouter.js";
 import UserRouter from './src/routes/userRouter.js'
-// import RecruiterRouter from ''
+import RecruiterRouter from './src/routes/recruiterRouter.js'
+import PublicRouter from './src/routes/publicRouter.js'
 import morgan from "morgan";
 import cloudinary from "./src/config/cloudinary.js"
 
@@ -26,6 +27,7 @@ app.use(morgan("dev"));
 
 app.use("/auth", AuthRouter);
 app.use("/user", UserRouter )
+
 app.use("/recruiter", RecruiterRouter);
 app.use("/public", PublicRouter);
 

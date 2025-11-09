@@ -2,7 +2,6 @@ import Job from "../models/jobModel.js";
 
 
 
-
 export const AddNewJobs = async (req, res, next) => {
   try {
     const {
@@ -19,7 +18,6 @@ export const AddNewJobs = async (req, res, next) => {
       noOfOpenings,
     } = req.body;
 
-    // Validate the request body
     if (
       !title ||
       !description ||

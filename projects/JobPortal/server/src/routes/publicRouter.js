@@ -1,5 +1,5 @@
 import express from 'express';
-import { GetAllJobs } from '../controller/publicontroller.js';
+import  GetAllJobs  from '../controller/publicontroller.js';
 
 const router = express.Router();
 

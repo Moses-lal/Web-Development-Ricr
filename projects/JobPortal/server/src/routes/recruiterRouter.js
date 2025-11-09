@@ -1,6 +1,7 @@
 import express from 'express';
 import { isRecruiter, Protect } from '../middlewares/authmiddle.js';
-import { AddNewJobs, GetPostedJobs } from '../controller/recruitercontroller.js';
+import { GetPostedJobs ,AddNewJobs } from '../controller/recruitercontroller.js';
+// import AddNewJobs from '../controller/recruitercontroller.js';
 
 
 const router = express.Router();
