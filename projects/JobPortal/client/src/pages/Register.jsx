@@ -119,10 +119,19 @@ const Register = () => {
 
   return (
     <>
-      <div className=" bg-gray-900 min-h-screen flex items-center justify-center">
+      <div className=" bg-gray-900 min-h-screen flex items-center justify-center bg-[url('./register2.jpg')] bg-cover">
+      
+        <div className="min-w-md bg-white rounded-2xl p-8 border flex space-x-30">
 
-        <div className="min-w-md bg-white rounded-2xl p-8 space-y-10 ">
-          <form className="space-y-6" onSubmit={handleSubmit}>
+          <div className="text-2xl border ">
+            <div className="bg-[url('./register3.avif')] h-full bg-contain">
+            </div>
+            <div>
+            Welcome to Hustle Family
+            </div>
+          </div>
+
+          <form className="space-y-6 border" onSubmit={handleSubmit}>
           <h1 className="text-blue-800 text-2xl text-center font-medium"> Register </h1>
             <div className="flex">
               <label
@@ -239,6 +248,7 @@ const Register = () => {
             </button>
           </form>
         </div>
+
       </div>
     </>
   );

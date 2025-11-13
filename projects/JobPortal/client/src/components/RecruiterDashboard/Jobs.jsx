@@ -1,13 +1,13 @@
 import React from "react";
 import AddNewJobModal from "../RecruiterDashboard/AddNewJobModel";
-// import ViewJobModal from "../RecruiterDashboard/ViewJobModel";
+import ViewJobModal from "../RecruiterDashboard/ViewJobModel";
 import api from "../../config/api";
 
 const Jobs = () => {
   const [jobs, setJobs] = React.useState([]);
 
   const [isAddJobModalOpen, setIsAddJobModalOpen] = React.useState(false);
-  // const [isViewJobModalOpen, setIsViewJobModalOpen] = React.useState(false);
+  const [isViewJobModalOpen, setIsViewJobModalOpen] = React.useState(false);
   const [selectedJob, setSelectedJob] = React.useState(null);
 
   const handleAddJob = () => {
@@ -30,16 +30,17 @@ const Jobs = () => {
   return (
     <>
       <div className="p-4">
-        <div className="flex justify-between border-b-2 border-[var(--secondary)] pb-4 mb-4">
-          <h1>All Posted Jobs</h1>
+        <div className="flex justify-between border-b-2 border-[var(--secondary)] pb-4 mb-4 items-center">
+          <h1 className="text-2xl font-bold text-[var(--text)]">All Posted Jobs</h1>
 
           <button
-            className="bg-[var(--secondary)] text-[var(--tertiary)] py-2 px-4 rounded"
+            className="bg-[var(--text)] text-white py-2 px-4 rounded"
             onClick={handleAddJob}
           >
             Add New Job
           </button>
         </div>
+
         <div className="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {jobs.length === 0 ? (
             <p>No jobs posted yet.</p>
@@ -48,14 +49,29 @@ const Jobs = () => {
             jobs.map((job) => (
               <div
                 key={job._id}
-                className="border p-4 mb-4 rounded shadow-sm"
+                className="border p-4 mb-4 rounded shadow-2xl shadow-[#1E2A38] transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:shadow-[#6BA3D6]"
                 onClick={() => {
                   setSelectedJob(job);
-                  // setIsViewJobModalOpen(true);
+                  setIsViewJobModalOpen(true);
                 }}
               >
+                <div className="h-50 flex flex-col justify-between ">
+
+                <div>
                 <h3 className="text-lg font-semibold">{job.title}</h3>
-                <p className="text-gray-600">{job.company}</p>
+                <p className="text-gray-600 mb-3">{job.company}</p>
+
+                <p className="text-">{job.description}</p>
+                </div>
+               
+                <div className="flex gap-2 mb-1">
+
+                <button className="border p-2 rounded-xl">{job.jobType}</button>
+                <button className="border p-2 rounded-xl">{job.experienceLevel}</button>
+                </div>
+
+                </div>
+               
               </div>
             ))
           )}
@@ -67,11 +83,11 @@ const Jobs = () => {
         onClose={() => setIsAddJobModalOpen(false)}
       />
 
-      {/* <ViewJobModal
+      <ViewJobModal
         isOpen={isViewJobModalOpen}
         onClose={() => setIsViewJobModalOpen(false)}
         job={selectedJob}
-      /> */}
+      />
     </>
   );
 };

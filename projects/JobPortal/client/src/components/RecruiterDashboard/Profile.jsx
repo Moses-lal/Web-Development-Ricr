@@ -11,7 +11,7 @@ import UpdateProfileModal from "../RecruiterDashboard/UpdateProfile";
 
 const Profile = () => {
 
-  const { user, setUser } = useAuth();
+  const { user, setuser } = useAuth();
 
   const [loading, setLoading] = useState(true);
 
@@ -32,7 +32,7 @@ const Profile = () => {
       });
       toast.success(res.data.message);
       sessionStorage.setItem("userData", JSON.stringify(res.data.data));
-      setUser(res.data.data);
+      setuser(res.data.data);
       setPreview("");
     } catch (error) {
       console.log(error);
@@ -105,7 +105,7 @@ const Profile = () => {
                 />
                 <label
                   htmlFor="dp"
-                  className="absolute bottom-0 right-0 border-l border-t border-[var(--background)] p-1 rounded-br-xl rounded-tl-xl text-lg bg-[var(--background)] hover:bg-[var(--tertiary)]"
+                  className="absolute bottom-0 right-0 border-l border-t border-[var(--secondary)] p-1 rounded-br-xl rounded-tl-xl text-lg bg-[var(--primary)] hover:bg-[var(--tertiary)]"
                 >
                   <FcCamera />
                 </label>

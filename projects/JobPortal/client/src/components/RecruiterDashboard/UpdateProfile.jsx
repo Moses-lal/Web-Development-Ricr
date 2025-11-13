@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import { useAuth } from "../../context/AuthContext";
 
 const UpdateProfileModal = ({ isOpen, onClose }) => {
-  const { setUser } = useAuth();
+  const { setuser } = useAuth();
   const [updateData, setUpdateData] = useState(
     JSON.parse(sessionStorage.getItem("userData")) || ""
   );
@@ -24,7 +24,7 @@ const UpdateProfileModal = ({ isOpen, onClose }) => {
       const res = await api.put("/user/update", updateData);
       toast.success(res.data.message);
       sessionStorage.setItem("userData", JSON.stringify(res.data.data));
-      setUser(res.data.data);
+      setuser(res.data.data);
       onClose();
     } catch (error) {
       console.log(error);

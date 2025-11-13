@@ -10,8 +10,6 @@ import morgan from "morgan";
 import cloudinary from "./src/config/cloudinary.js"
 
 
-
-
 const app = express();
 
 
@@ -19,8 +17,6 @@ app.use(cors({ origin: "http://localhost:5173", credentials: true }));
 app.use(express.json());
 app.use(cookieParser());
 app.use(morgan("dev"));
-
-
 
 
 
@@ -39,8 +35,6 @@ app.use("/public", PublicRouter);
 app.get("/", (req, res) => {
   res.status(200).json({ message: "Welcome to Job Portal API" });
 });
-
-
 
 
 
@@ -64,8 +58,6 @@ app.listen(PORT, async () => {
   try {
     const res = await cloudinary.api.ping()
     console.log("Cloudinary API is working: ",res);
-    
-    
   } catch (error) {
     console.error("Error in connecting to Cloudinary API: ", error);
     
