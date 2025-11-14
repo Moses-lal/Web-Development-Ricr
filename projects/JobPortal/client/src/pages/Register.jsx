@@ -121,47 +121,57 @@ const Register = () => {
     <>
       <div className=" bg-gray-900 min-h-screen flex items-center justify-center bg-[url('./register2.jpg')] bg-cover">
       
-        <div className="min-w-md bg-white rounded-2xl p-8 border flex space-x-30">
+        <div className="min-w-md bg-white rounded-2xl p-8 border-t-2 flex space-x- mt-5 border-t-[var(--text)] border-e-2 border-e-[var(--text)] transition-all ease-out duration-500 hover:shadow-xl hover:shadow-[#6BA3D6] hover:-translate-y-4 hover:scale-[1.05]">
 
-          <div className="text-2xl border ">
-            <div className="bg-[url('./register3.avif')] h-full bg-contain">
-            </div>
-            <div>
-            Welcome to Hustle Family
+          <div className="text-2xl border max-h-md min-w-sm bg-[url('./register3.avif')] bg-contain flex items-end justify-center">
+            
+            <div className="bg-white rounded-2xl font-bold p-3 ">
+              Looking For a <br />
+              Job we Got what You Want !! <br />
+              Sign Up :)
             </div>
           </div>
 
-          <form className="space-y-6 border" onSubmit={handleSubmit}>
-          <h1 className="text-blue-800 text-2xl text-center font-medium"> Register </h1>
-            <div className="flex">
+          <form className="space-y-2 borde p-4 text-[var(--primary)]" onSubmit={handleSubmit}>
+          <h1 className="text-[var(--text)] text-2xl font-bold  "> Register/Sign Up   </h1>
+          <p className="text-[var(--secondary)] font-medium text-md">Ready for the hustle...</p>
+
+            <div>
               <label
-                className="block text-2xl mb-1"
+                className="block font-bold text-xl "
                 htmlFor="role"
               >
                 Role :
               </label>
-              <div className="flex gap-3 items-center ml-4">
-                <input type="radio" name="role" id="applicant" value={"applicant"} onChange={handlechange} />
-                <label htmlFor="applicant" className="text-xl hover:underline hover:text-green-600">Applicant</label>
-                <input type="radio" name="role" id="recruiter" value={"recruiter"} onChange={handlechange} />
-                <label htmlFor="recruiter" className="text-xl hover:underline hover:text-green-600">Recruiter</label>
-              </div>
+              <span className="flex justify-center items-center gap-5">
+                <div className="flex gap-2">
+                <input type="radio" name="role" id="applicant" value={"applicant"} onChange={handlechange} className="accent-purple-800" />
+                <label htmlFor="applicant" className=" transition-all duration-200 text-xl hover:underline hover:text-[var(--text)]">Applicant</label>
+                </div>
+               
+               <div className="flex gap-2">
+                <input type="radio" name="role" id="recruiter" value={"recruiter"} onChange={handlechange} className="accent-purple-800"/>
+                <label htmlFor="recruiter" className="transition-all duration-200 text-xl hover:underline hover:text-[var(--text)]">Recruiter</label>
+               </div>
+               
+              </span>
+                
+        
               {error.role && (
                 <p className="text-red-500 text-sm mt-1">{error.role}</p>
               )}
             </div>
             <div>
-              <div className="space-x-6">
-                <label className="text-2xl">FullName:</label>
+                <label className="block text-xl font-bold">FullName:</label>
                 <input
                   type="name"
                   id="fullName"
                   name="fullName"
-                  className="border p-1"
+                  className="border-b-1 w-full p-1 focus:outline-[var(--text)]"
                   value={registerData.fullName}
                   onChange={handlechange}
+                  placeholder="Name.."
                 />
-              </div>
               {error.fullName && (
                 <p className="text-red-500 text-sm mt-1 mx-15">
                   {error.fullName}
@@ -170,34 +180,33 @@ const Register = () => {
             </div>
 
             <div>
-              <div className="space-x-6">
-                <label className="text-2xl">Email:</label>
+                <label className="block text-xl font-bold">Email:</label>
                 <input
                   type="email"
                   id="email"
                   name="email"
-                  className="border p-1"
+                  className="border-b-1 w-full p-1 focus:outline-[var(--text)]"
                   value={registerData.email}
                   onChange={handlechange}
+                  placeholder="user@email.com"
                 />
-              </div>
+            
               {error.email && (
                 <p className="text-red-500 text-sm mt-1 mx-15">{error.email}</p>
               )}
             </div>
 
             <div>
-              <div className="space-x-6">
-                <label className="text-2xl">Password:</label>
+                <label className="block text-xl font-bold">Password:</label>
                 <input
                   type="password"
-                  className="border p-1"
+                  className="border-b-1 w-full p-1 focus:outline-[var(--text)]"
                   id="password"
                   name="password"
                   value={registerData.password}
                   onChange={handlechange}
+                  placeholder="*****************"
                 />
-              </div>
               {error.password && (
                 <p className="text-red-500 text-sm mt-1 mx-15">
                   {error.password}
@@ -206,17 +215,16 @@ const Register = () => {
             </div>
 
             <div>
-              <div className="space-x-6">
-                <label className="text-2xl">Confirm Password:</label>
+                <label className="text-xl font-bold ">Confirm Password:</label>
                 <input
                   type="password"
-                  className="border p-1"
+                  className="border-b-1 w-full p-1 focus:outline-[var(--text)]"
                   id="confirmPassword"
                   name="confirmPassword"
                   value={registerData.confirmPassword}
                   onChange={handlechange}
+                  placeholder="*****************"
                 />
-              </div>
               {error.confirmPassword && (
                 <p className="text-red-500 text-sm mt-1 mx-15">
                   {error.confirmPassword}
@@ -225,17 +233,17 @@ const Register = () => {
             </div>
 
             <div>
-              <div className="space-x-6">
-                <label htmlFor="phone" className="text-2xl">phone:</label>
+                <label htmlFor="phone" className="block text-xl font-bold">Phone:</label>
                 <input
                   type="name"
                   id="phone"
                   name="phone"
-                  className="border p-1"
+                  className="border-b-1 w-full p-1 focus:outline-[var(--text)]"
                   value={registerData.phone}
                   onChange={handlechange}
+                  placeholder="+91"
                 />
-              </div>
+            
               {error.phone && (
                 <p className="text-red-500 text-sm mt-1 mx-15">
                   {error.phone}
