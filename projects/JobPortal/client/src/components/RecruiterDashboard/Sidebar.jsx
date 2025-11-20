@@ -16,7 +16,7 @@ const navItems = [
 
 const Sidebar = ({ active, setActive }) => {
 
-  const { setUser, setIsLogin ,setIsRecruiter} = useAuth();
+  const { setuser, setIsLogin ,setIsRecruiter} = useAuth();
   const navigate = useNavigate();
 
   const handleLogout = async () => {
@@ -24,7 +24,7 @@ const Sidebar = ({ active, setActive }) => {
       const res = await api.get("/auth/logout");
       toast.success(res.data.message);
       sessionStorage.removeItem("userData");
-      setUser("");
+      setuser("");
       setIsLogin(false);
       setIsRecruiter(false);
       navigate("/");
@@ -87,9 +87,9 @@ const Sidebar = ({ active, setActive }) => {
             </ul>
           </div>
         </div>
-        <div className="border-t-2 border-[var(--background)] text-center p-2">
+        <div className="border-t-2 border-[var(--text)] text-center p-2 ">
           <button
-            className="border bg-red-500 py-2 px-4 rounded-lg font-bold text-white"
+            className="border bg-red-500 py-2 px-4 rounded-lg font-bold text-white mt-1"
             onClick={confirmLogout}
           >
             Logout

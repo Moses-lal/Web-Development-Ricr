@@ -11,21 +11,19 @@ const Jobs = () => {
   const [selectedJob, setSelectedJob] = React.useState(null);
 
   const handleAddJob = () => {
-    // Logic to handle adding a new job
     console.log("Add New Job button clicked");
     setIsAddJobModalOpen(true);
   };
 
   const fetchJobs = async () => {
-    // Simulate an API call to fetch jobs
     const res = await api.get("/recruiter/get-posted-jobs");
     setJobs(res.data.data);
   };
 
-  React.useEffect(() => {
-    // Fetch jobs from API
-    if (!isAddJobModalOpen) fetchJobs();
-  }, [isAddJobModalOpen]);
+
+   React.useEffect(() => {
+    if (!isAddJobModalOpen && !isViewJobModalOpen) fetchJobs();
+  }, [isAddJobModalOpen , isViewJobModalOpen]);
 
   return (
     <>
@@ -49,7 +47,7 @@ const Jobs = () => {
             jobs.map((job) => (
               <div
                 key={job._id}
-                className="border p-4 mb-4 rounded shadow-2xl shadow-[#1E2A38] transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:shadow-[#6BA3D6]"
+                className=" p-4 mb-4 rounded shadow-2xl shadow-[#1E2A38] transition-all duration-300 hover:-translate-y-3 hover:shadow-2xl hover:shadow-[#165998]"
                 onClick={() => {
                   setSelectedJob(job);
                   setIsViewJobModalOpen(true);
@@ -66,8 +64,8 @@ const Jobs = () => {
                
                 <div className="flex gap-2 mb-1">
 
-                <button className="border p-2 rounded-xl">{job.jobType}</button>
-                <button className="border p-2 rounded-xl">{job.experienceLevel}</button>
+                <button className="border p-2 rounded-xl border-blue-800 shadow-sm shadow-cyan-700">{job.jobType}</button>
+                <button className="border p-2 rounded-xl  border-cyan-300  shadow-md shadow-green-500">{job.experienceLevel}</button>
                 </div>
 
                 </div>

@@ -1,6 +1,6 @@
 import React from 'react'
 
-export const jobDetails = () => {
+const jobDetails = () => {
   return (
     <>
     
@@ -11,3 +11,5 @@ export const jobDetails = () => {
     </>
   )
 }
+
+export default jobDetails
