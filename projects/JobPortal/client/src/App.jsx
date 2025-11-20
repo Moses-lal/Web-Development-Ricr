@@ -16,7 +16,9 @@ import RecruiterDashbaord from "./pages/RecruiterDash";
 const App = () => {
   return (
     <>
+    
       <BrowserRouter>
+    
        <Toaster/>
         <Navbar />
         <Routes>

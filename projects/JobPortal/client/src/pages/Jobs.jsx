@@ -30,7 +30,7 @@ const Jobs = () => {
 
   return (
     <>
-      <div className="p-4">
+      <div className="p-4 min-h-screen bg-[var(--tertiary)] ">
         <h1 className="text-center text-2xl font-bold-">Available Jobs</h1>
         <div className="max-w-5xl mx-auto p-4">
           {loading ? (
@@ -58,7 +58,7 @@ const Jobs = () => {
               return (
                 <article
                   key={job._id || job.id}
-                  className="mb-6 bg-white border border-gray-100 rounded-2xl shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-150"
+                  className="mb-6 bg-[var(--primary)] rounded-2xl shadow-sm overflow-hidden hover:shadow-lg transition-all duration-300 ease-out hover:shadow-[#165998] hover:-translate-y-4 hover:scale-[1.05]"
                 >
                   <div className="p-5 sm:p-6 grid grid-cols-1 sm:grid-cols-12 gap-4 items-start">
                     <div className="sm:col-span-2 flex items-center">
@@ -72,11 +72,11 @@ const Jobs = () => {
                     <div className="sm:col-span-7">
                       <div className="flex items-start justify-between">
                         <div>
-                          <h3 className="text-lg font-semibold text-gray-900">
+                          <h3 className="text-lg font-semibold text-white">
                             {job.title}
                           </h3>
-                          <p className="text-sm text-gray-500 mt-1">
-                            {company.companyName || "Unknown Company"} •{" "}
+                          <p className="text-sm text-white mt-1">
+                            {job.company || "Unknown Company"} •{" "}
                             <span className="text-gray-400">
                               Posted on : {posted}
                             </span>
@@ -92,7 +92,7 @@ const Jobs = () => {
                         </div>
                       </div>
 
-                      <p className="text-sm text-gray-700 mt-3">{shortDesc}</p>
+                      <p className="text-sm text-white mt-3">{shortDesc}</p>
 
                       {skills.length > 0 && (
                         <div className="mt-3 flex flex-wrap gap-2">
@@ -115,18 +115,18 @@ const Jobs = () => {
 
                     <div className="sm:col-span-3 flex flex-col items-end justify-between">
                       <div className="text-right grid grid-cols-2 gap-4">
-                        <div className="text-sm text-gray-500">Location</div>
-                        <div className="text-sm font-medium text-gray-800">
+                        <div className="text-sm text-white">Location</div>
+                        <div className="text-sm font-medium text-white">
                           {job.location || "Remote"}
                         </div>
 
-                        <div className="text-sm text-gray-500">Salary</div>
-                        <div className="text-sm font-semibold text-gray-900">
+                        <div className="text-sm text-white">Salary</div>
+                        <div className="text-sm font-semibold text-white">
                           {job.salary ? `₹${job.salary}/month` : "-"}
                         </div>
 
-                        <div className="text-sm text-gray-500">Openings</div>
-                        <div className="text-sm font-medium text-gray-800">
+                        <div className="text-sm text-white">Openings</div>
+                        <div className="text-sm font-medium text-white">
                           {job.noOfOpenings || "1"}
                         </div>
                       </div>
