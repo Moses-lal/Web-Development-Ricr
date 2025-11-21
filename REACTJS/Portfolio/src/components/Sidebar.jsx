@@ -7,7 +7,7 @@ const Sidebar = () => {
   <>
   <div className=" border w-3/14">
 
-     <div className="flex flex-col gap-4 p-2 text-center h-[86vh] ">
+     <div className="flex flex-col gap-4 p-2 text-center min-h-screen ">
        <Link to={"/"}> home</Link>
        <Link to={"/about"}>About</Link> 
        <Link to={"/education"}>Eduction</Link>

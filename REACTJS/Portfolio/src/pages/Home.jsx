@@ -3,39 +3,42 @@ import moses from "../assets/moses.jpg";
 
 const Home = () => {
   return (
-    <div>
-      <div className="w-full h-screen bg-[url('/hero.jpg')] bg-contain bg-start  ">
-        <div className="w-179 h-180 bg-[#642611]  mx-110 p-5 relative ">
-          <div className="flex gap-20">
-            <h2 className="text-4xl font-bold text-amber-50 mt-8 ms-5">
-              {" "}
-              Hello, <br />I m{" "}
-              <span className="text-blue-800 text-shadow-2xs text-shadow-cyan-100 font-extrabold">
-                Moses Lal
-              </span>{" "}
-            </h2>
-            <div className="w-70 h-70 border rounded-full mt-1 ">
-              <img
-                src={moses}
-                className="object-cover w-70 h-70 rounded-full object-top shadow-2xl shadow-blue-600 border-4 border-b-cyan-800 border-s-cyan-800 border-e-red-900 border-t-red-900"
-              />
-            </div>
+    <>
+      <div className="relative w-full h-screen overflow-hidden bg-blue-400">
+        
+        <div
+          aria-hidden="true"
+          className="absolute inset-0 bg-[radial-gradient(circle,rgba(0,0,0,0.5),rgba(0,0,0,0.7))]"
+        >
+          About
+        </div>
+
+        <div className="relative z-10 flex items-center justify-center h-full px-6 ">
+          <h1 className="text-4xl text-white"> I'm a <span className="text-blue-400">Web Developer</span></h1>
+
+          <p className="mt-4 text-lg md:text-2xl text-white/90">
+            Full-Stack • React.js • Node.js • TailwindCSS
+          </p>
+
+           <div className="mt-8 flex justify-center gap-4">
+            <a
+              href="#projects"
+              className="px-6 py-3 bg-blue-500/90 hover:bg-blue-600 text-white rounded-md font-medium shadow-md"
+            >
+              See Projects
+            </a>
+            <a
+              href="#contact"
+              className="px-6 py-3 border border-white/30 text-white rounded-md hover:bg-white/5"
+            >
+              Contact
+            </a>
           </div>
-          <div className="text-xl font-medium text-white absolute top-48 left-10">
-            I' M a Full Stack Web Developer <br />
-            <span className="text-2xl m"> Comfort Technologies </span>
-            <div className="flex flex-col gap-3">
-              <span>MongoDB</span>
-              <span>React.js</span>
-              <span>Node.js</span>
-              <span>Express.js</span>
-              <span>TailwindCSS</span>
-              <span>JavaScript</span>
-            </div>
-          </div>
+
+          
         </div>
       </div>
-    </div>
+    </>
   );
 };
 

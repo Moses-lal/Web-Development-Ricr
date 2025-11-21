@@ -71,7 +71,7 @@ const ViewJobModal = ({ isOpen, onClose, job }) => {
           </div>
           {job ? (
             <div className="space-y-3 px-6 py-2">
-              <div>
+              <div className="grid gap-2">
                 <label htmlFor="title">Job Title</label>
                 <input
                   type="text"
@@ -251,7 +251,7 @@ const ViewJobModal = ({ isOpen, onClose, job }) => {
           ) : (
             <p>No job details available.</p>
           )}
-          <div className="p-4 border-t flex justify-end bg-white sticky bottom-0">
+          <div className="p-4 border-t border-[var(--primary)] flex justify-end bg-white sticky bottom-0">
             <button
               className="bg-red-500 text-white py-2 px-4 rounded"
               onClick={onClose}
