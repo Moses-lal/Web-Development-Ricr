@@ -12,4 +12,9 @@ router.put("/update", Protect, UpdateProfile);
 
 router.patch("/changephoto", Protect, upload.single("profilePicture"),changephoto);
 
+router.post("/apply-job", Protect, ApplyJob);
+
+router.get("/applied-jobs", Protect, AppliedJobs);
+
+
 export default router;

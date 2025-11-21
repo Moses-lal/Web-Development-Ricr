@@ -39,8 +39,7 @@ const Sidebar = ({ active, setActive }) => {
 
         </div>
        
-        <
-          div className="border-t-2 border-[var(--background)] text-center p-4 ">
+        <div className="border-t-2 border-[var(--background)] text-center p-4 ">
           <button className="border border-[#c589e8] bg-[var(--primary)] py-3 px-5 rounded-lg font-bold text-white shadow-md shadow-[#c589e8]">logout</button>
         </div>
 

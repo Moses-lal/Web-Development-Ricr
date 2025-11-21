@@ -11,7 +11,7 @@ const Navbar = () => {
           <h1 className="text-zinc-100 text-3xl ">Hustle SHala</h1>
         </div>
 
-        <div className="flex gap-6 text-white text-xl mx-70 bg-[var(--primary)]/90 border-2 border-[var(--text)] shadow-md shadow-[#c589e8] p-5 rounded-2xl">
+        <div className="flex gap-5 text-white text-xl mx-60 bg-[var(--primary)]/90 border-2 border-[var(--text)] shadow-md shadow-[#c589e8] p-5 rounded-2xl">
           <Link
             to={"/"}
             className="hover:font-medium hover:text-[var(--tertiary)] hover:transition-all 2s "
