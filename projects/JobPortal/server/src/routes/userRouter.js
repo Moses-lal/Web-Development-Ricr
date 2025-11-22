@@ -1,5 +1,5 @@
 import express from 'express'
-import { UpdateProfile ,changephoto} from "../controller/usercontroller.js";
+import { UpdateProfile ,changephoto , ApplyJob, AppliedJobs} from "../controller/usercontroller.js";
 import { Protect } from "../middlewares/authmiddle.js";
 import multer from 'multer'
 

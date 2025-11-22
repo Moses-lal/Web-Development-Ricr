@@ -1,5 +1,5 @@
 import cloudinary from 'cloudinary'
-import Application from "../models/applicationModel.js";
+import Application from "../models/applicationmodel.js";
 import Job from "../models/jobModel.js";
 import user from '../models/usermodel.js'
 
