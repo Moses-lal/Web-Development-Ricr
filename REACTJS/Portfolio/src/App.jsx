@@ -15,7 +15,7 @@ const App = () => {
 
       <BrowserRouter>
 
-      {/* <Navbar /> */}
+      <Navbar />
       <main className="flex ">
         <Sidebar />
         <section className="border w-11/14 ">

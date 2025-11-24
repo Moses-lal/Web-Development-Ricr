@@ -39,7 +39,7 @@ bg-[radial-gradient(circle_at_center,rgba(0,0,0,1)_0%,rgba(0,0,0,1)_45%,rgba(0,1
 
 
    <div className=" mt-8 flex  gap-5">
-    <button className="border rounded-xl p-3 flex items-center gap-1 text-[#008080]"> <FaLongArrowAltRight />Hire Me </button>
+    <button className="border rounded-xl p-3 flex items-center gap-1 text-[#008080] hover:bg-[#008080]/90 hover:text-black hover:border-black"> <FaLongArrowAltRight />Hire Me </button>
     <button className="border rounded-xl p-3 flex items-center gap-1 bg-[#008080] border-[#008080] text-black"><MdOutlineFileDownload />Resume</button>
    </div>
 
