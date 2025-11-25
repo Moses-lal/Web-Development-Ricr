@@ -27,7 +27,7 @@ export default function ProjectCarousel() {
     {
       id: 3,
       title: "Invoice Billing System",
-      image: "pro3.png",
+      image: "pro10.png",
       short: "A streamlined invoice billing system that automates invoice creation, manages client records, and tracks payments with accuracy.",
       details: "A complete invoice billing platform that handles invoice generation, tax calculations, client management, payment tracking, and Proper Tax Calculation with Feedback",
       tags: ["Express", "API" , "HTML","CSS", "JSON" ],
@@ -58,7 +58,7 @@ export default function ProjectCarousel() {
     },
     {
       id: 7,
-      title: "Shopify",
+      title: "MakeupMuse",
       image: "pro7.png",
       short: "Your beauty shop for every shade, style, and shine.",
       details: "A beauty space crafted for women who love to express themselves. From subtle elegance to bold looks — we have something for every mood",
