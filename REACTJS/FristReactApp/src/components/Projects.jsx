@@ -1,6 +1,6 @@
 import React from "react";
-// import { FaCircleChevronLeft } from "react-icons/fa6";
-// import { FaCircleChevronRight } from "react-icons/fa6";
+import { FaCircleChevronLeft } from "react-icons/fa6";
+import { FaCircleChevronRight } from "react-icons/fa6";
 
 function Projects() {
 
@@ -172,10 +172,10 @@ function Projects() {
         </div>
 
         <button onClick={left} id="left">
-          {/* <FaCircleChevronLeft /> */}
+          <FaCircleChevronLeft />
         </button>
         <button onClick={right} id="right">
-          {/* <FaCircleChevronRight /> */}
+          <FaCircleChevronRight /> 
         </button>
       </div>
     </>

@@ -1,5 +1,4 @@
 import React from "react";
-import moses from "../assets/moses.jpg";
 import { FaInstagram } from "react-icons/fa";
 import { RxGithubLogo } from "react-icons/rx";
 import { FaLinkedin } from "react-icons/fa";
