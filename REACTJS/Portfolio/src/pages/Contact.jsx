@@ -16,10 +16,18 @@ bg-[radial-gradient(circle_at_center,rgba(0,0,0,1)_0%,rgba(0,0,0,1)_45%,rgba(0,1
   
   
   <div className='w-[54rem] bg-white/5 ml-35'>
-    <h2 className='text-2xl text-white mt-5 flex justify-center '> Contact Me</h2>
-    <hr />
-    <hr />
-    <div className='flex text-white space-x-30 mt-10'>
+
+  <div className='text-2xl text-white mt-5 flex justify-center '>
+
+<div>
+     <h2 className=''> Contact Me</h2>
+      <hr className='text-[#008080] mt-1 w-15 ml-8 border-1'/>
+      <hr className='text-[#008080] w-8 mt-1 ml-11.5 border-1'/>
+</div>
+
+  </div>
+   
+    <div className='flex text-white space-x-30 mt-8'>
 
       <div className='w-50 pl-5 border-l-8 border-[#008080]'>
         <p className='text-2xl font-bold'>Get in Touch </p>

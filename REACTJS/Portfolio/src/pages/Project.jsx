@@ -27,7 +27,7 @@ export default function ProjectCarousel() {
     {
       id: 3,
       title: "Invoice Billing System",
-      image: "pro10.png",
+      image: "pro3.png",
       short: "A streamlined invoice billing system that automates invoice creation, manages client records, and tracks payments with accuracy.",
       details: "A complete invoice billing platform that handles invoice generation, tax calculations, client management, payment tracking, and Proper Tax Calculation with Feedback",
       tags: ["Express", "API" , "HTML","CSS", "JSON" ],
