@@ -18,7 +18,7 @@ function ContactMe(){
       </h2>
         
         <div className="d-flex container-fluid align-content-center justify-content-center bg-gradient w-75 py-2" id="cont">
-          <div className="border mt-4 w-75 text-light p-4 rounded-4 d-grid" id="cont1">
+          <div className="border mt-4 text-light p-4 rounded-4 d-grid" id="cont1">
           <div className="border p-4 d-grid gap-5 rounded-5 " id="cont2">
             <h3 className="fw-bolder" id="cont3">Contact <br />Information</h3>
 

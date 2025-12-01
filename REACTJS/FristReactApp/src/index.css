@@ -1,3 +1,4 @@
+
 #nav :hover {
   border: 1px solid #000;
   background-color: darkslategray;
@@ -5,35 +6,38 @@
   transition: padding 0.3s ease-in-out;
 }
 
+
 #about {
-  /* background-color: ; */
   height: 450px;
   color: #4c78a4;
-  /* color: #7cdbe5; */
 }
 
-.dabba {
-  /* background: linear-gradient(180deg, #ff9a9e, #fad0c4); */
-  /* background: linear-gradient(180deg, #000000, #0f9b0f); */
-  /* background: linear-gradient(180deg, #20002c, #c31432); */
-  background: linear-gradient(180deg, #232526, #4b7299);
-}
-
-#img {
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: left;
-  /* background-color: black; */
-  /* background-position: center; */
-  /* top: 0; */
-  /* box-shadow: brown; */
-  border: 2px solid #000;
-}
 
 #about1 {
   background-color: #232526;
   box-shadow: 0 4px 15px rgba(218, 222, 225, 0.5);
 }
+
+
+.dabba {
+  background: linear-gradient(180deg, #232526, #4b7299);
+}
+
+
+#img {
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: left;
+  border: 2px solid #000;
+}
+
+
+
+
+
+/* education page */
+
+
 
 #education {
   height: 890px;
@@ -41,29 +45,24 @@
 
 #edu {
   background: linear-gradient(90deg, #232526, rgba(11, 112, 212, 0.76));
-  width: 500px;
+  width: 400px;
   color: white;
-  /* box-shadow: 0 4px 15px rgba(218, 222, 225, 0.5); */
-  /* box-shadow: 0 4px 15px rgba(18, 212, 230, 0.5); */
 }
 
 .edugrid {
-  /* display: grid; */
-  grid-template-columns: 500px 500px 500px;
+  grid-template-columns: 450px 450px 450px;
 }
 
 #tech {
   box-shadow: 0 4px 15px rgba(181, 232, 15, 0.5);
-    /* box-shadow: 0 4px 15px rgba(23, 154, 220, 0.5); */
 }
 
 #project1 {
   height: 600px;
-  width: 90rem;
+  width: 80rem;
   margin-top: 60px;
-  margin-left: 155px;
+  margin-left: 150px;
   margin-bottom: 100px;
-  /* box-shadow: 0 4px 15px rgba(181, 232, 15, 0.5); */
   box-shadow: 0 4px 15px rgba(23, 154, 220, 0.5);
   position: relative;
 }
@@ -87,7 +86,7 @@
 }
 
 .course {
-  width: 28rem;
+  width: 20rem;
   height: 20rem;
   border-radius: 5%;
   box-shadow: 0 4px 15px rgba(181, 232, 15, 0.5);
@@ -128,7 +127,7 @@
 
 #ir {
   position: absolute;
-  left: 98rem;
+  left: 88rem;
   top: 152rem;
   background-color: #232526;
 }
@@ -154,7 +153,7 @@
 }
 
 #cont1{
-  grid-template-columns: 450px 500px;
+  grid-template-columns: 400px 500px;
 }
 
 #cont2{
@@ -199,12 +198,12 @@
   position: absolute;
   background: none;
   font-size: xxx-large;
-  width: 100px;
+  width: 10px;
   height: 100px;
   border: none;
   color: #4b7299;
   border-radius: 50%;
   place-items: center;
   top: 114rem;
-  left: 98.5rem;
+  left: 90rem;
 }

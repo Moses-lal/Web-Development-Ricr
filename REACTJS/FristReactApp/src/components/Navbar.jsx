@@ -11,7 +11,7 @@ function Navbar() {
             MOLio
           </h2>
 
-          <div className="d-flex gap-1 border border-4 m-auto rounded-4 p-3 bg-dark">
+          <div className="d-flex gap-1 border border-4 m-auto rounded-4 p-2 py-2 bg-dark">
 
             <div className="align-content-center p-2" id="nav">
               <a href="#about" className="text-decoration-none text-white  fs-5">About</a>

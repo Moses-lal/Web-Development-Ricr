@@ -50,35 +50,9 @@ function Certifications() {
             </p>
           </div>
 
-          <div className="border p-4 justify-content-center align-content-center course">
-            <h4>
-              {" "}
-              <b> User-Centric Computing for HCI </b>
-            </h4>
-
-            <p>
-              Certified in User-centric Computing for HCI by NPTL through IIT
-              Guwahati <br />
-              in January 2024{" "}
-            </p>
-            <h4>
-              {" "}
-              <b> Demystifying Networking </b>
-            </h4>
-            <p>
-              {" "}
-              Certified in Demystifying Networking by <br /> NPTL IIT Bombay{" "}
-              <br />
-              in July 2023{" "}
-            </p>
-          </div>
 
            <div className="border border-dark certicircle" id="c">
            <FaJava />
-        </div>
-
-         <div className="border border-dark certicircle" id="ir">
-           <img src={"/swayam.png"} className="certicircle" />
         </div>
 
         <div className="border border-dark certicircle" id="l">
