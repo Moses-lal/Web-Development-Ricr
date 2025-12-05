@@ -4,7 +4,7 @@ import { GiSuitcase } from "react-icons/gi";
 import api from "../../config/api";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../context/AuthContext";
+import { useAuth } from "../../context/authcontext";
 
 const navItems = [
   { value: "overview", text: "Overview", icons: <FcHome /> },
@@ -64,7 +64,7 @@ const Sidebar = ({ active, setActive }) => {
     <>
       <div className="bg-gradient-to-b from-[var(--primary)]  to-[var(--secondary)] h-full p-2 flex flex-col justify-between">
         <div>
-          <h1 className="text-2xl border-b-2 border-[var(--background)] text-center text-[var(--text)] font-bold pb-3 pt-3">
+          <h1 className="text-2xl border-b-2 text-center text-[var(--text)] font-bold pb-3 pt-3">
             {" "}
             Recruiter Dashboard
           </h1>
@@ -76,8 +76,8 @@ const Sidebar = ({ active, setActive }) => {
                   key={idx}
                   className={`flex gap-2 items-center p-3 border border-[var(--background)] rounded-lg ${
                     active === item.value
-                      ? "bg-[var(--tertiary)] "
-                      : "hover:bg-[var(--background)] text-[var(--text)]"
+                      ? "bg-[var(--tertiary)]"
+                      : "hover:bg-[var(--primary)] text-[var(--text)]"
                   }`}
                   onClick={() => setActive(item.value)}
                 >
