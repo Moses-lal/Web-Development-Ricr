@@ -105,7 +105,7 @@ const Profile = () => {
     <>
       <div className="h-full bg-gray-50 py-8">
         <div className="w-6xl mx-auto space-y-8">
-          <div className="bg-white border border-gray-200 shadow-sm rounded-2xl p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6">
+          <div className="bg-white border border-gray-200 shadow-sm rounded-2xl p-6 md:p-8 flex flex-col md:flex-row md:items-center gap-6 transition-all duration-300 ease-out hover:shadow-md hover:shadow-[#165998]">
             {/* image  */}
             <div className="flex-shrink-0">
               <div className="relative w-32 h-32">
@@ -174,7 +174,7 @@ const Profile = () => {
           {/* Details Grid */}
           <div className="grid md:grid-cols-3 gap-6">
             <div className="md:col-span-2 space-y-6">
-              <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+              <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm transition-all duration-300 ease-out hover:shadow-md hover:shadow-[#165998]">
                 <h2 className="text-lg font-semibold text-[var(--primary)] mb-4">
                   Bio
                 </h2>
@@ -183,7 +183,7 @@ const Profile = () => {
                 </p>
               </section>
 
-              <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+              <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm transition-all duration-300 ease-out hover:shadow-md hover:shadow-[#165998]">
                 <h2 className="text-lg font-semibold text-[var(--primary)] mb-4">
                   Skills
                 </h2>
@@ -205,7 +205,7 @@ const Profile = () => {
             </div>
 
             <div className="space-y-6">
-              <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+              <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm transition-all duration-300 ease-out hover:shadow-md hover:shadow-[#165998]">
                 <h2 className="text-lg font-semibold text-[var(--primary)] mb-4">
                   Contact
                 </h2>
@@ -231,7 +231,7 @@ const Profile = () => {
                 </ul>
               </section>
 
-              <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm">
+              <section className="bg-white rounded-xl border border-gray-200 p-6 shadow-sm transition-all duration-300 ease-out hover:shadow-md hover:shadow-[#165998]">
                 <h2 className="text-lg font-semibold text-[var(--primary)] mb-4">
                   Socials
                 </h2>

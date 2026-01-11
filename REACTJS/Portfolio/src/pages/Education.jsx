@@ -18,9 +18,9 @@ bg-[radial-gradient(circle_at_center,rgba(0,0,0,1)_0%,rgba(0,0,0,1)_45%,rgba(0,1
 
      <div className='bg-white/5  p-5 relative ml-25'>
       
-      <div className='flex gap-5 mt-15  '>
+      <div className='flex gap-8 mt-15 '>
 
-      <div className='relative border-b-2 border-[#008080] transition-all ease-out duration-300 hover:border-b-4 hover:border-[#008080] hover:-translate-y-4 '>
+      <div className='border-b-2 border-[#008080] transition-all ease-out duration-300 hover:border-b-4 hover:border-[#008080] hover:-translate-y-4'>
         <h3 className='text-xl text-white font-bold border-l-4 border-[#008080] pl-1.5'>Secondary</h3>
         <img src="./school1.jpg" className='w-70 my-5' />
         <h4 className=' text-white font-bold  border-[#008080] '>St. Montfort School, Bhopal </h4>
@@ -38,7 +38,7 @@ bg-[radial-gradient(circle_at_center,rgba(0,0,0,1)_0%,rgba(0,0,0,1)_45%,rgba(0,1
          <p className='text-[#008080] text-sm font-bold'> 12th Percentage - 62%</p>
       </div>
 
-       <div className='relative border-b-2 border-[#008080] transition-all ease-out duration-300 hover:border-b-4 hover:border-[#008080] hover:-translate-y-4'>
+       <div className='border-b-2 border-[#008080] transition-all ease-out duration-300 hover:border-b-4 hover:border-[#008080] hover:-translate-y-4'>
         <h3 className='text-xl text-white font-bold border-l-4 border-[#008080] pl-2'>B.tech in  <br />Computer Science & Engineering</h3>
         <img src="./school3.jpeg" className='w-70 my-5' />
         <h4 className=' text-white font-bold '>Madhav Institute of Technology and Science, Gwalior </h4>
@@ -51,7 +51,7 @@ bg-[radial-gradient(circle_at_center,rgba(0,0,0,1)_0%,rgba(0,0,0,1)_45%,rgba(0,1
      </div>
 
       <div className='absolute top-0 '>
-      <h2 className='text-2xl text-white font-bold border-l-4 border-[#008080] pl-1.5'>Education</h2>
+      <h2 className='text-2xl text-white font-bold border-l-4 border-[#008080] pl-1.5 mt-2'>Education</h2>
      </div>
 
 
